@@ -12,4 +12,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
     }
+    
+    public void sendWarning(View view) {
+
+    Snackbar mySnackbar = Snackbar.make(view, "message", 10000);
+    mySnackbar.show();
+
+    }
 }
