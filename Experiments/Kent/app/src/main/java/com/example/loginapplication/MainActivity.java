@@ -2,6 +2,7 @@ package com.example.loginapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        eName = findViewById(R.id.etName);
+        eName = findViewById(R.id.editTextTextPersonName);
         ePassword = findViewById(R.id.etPassword);
         eLogin = findViewById(R.id.btnLogin);
         eAttemptsInfo = findViewById(R.id.tvAttemptsInfo);
@@ -53,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
                         counter--;
                         Toast.makeText(MainActivity.this, "Incorrect credentials entered!", Toast.LENGTH_SHORT).show();
 
+                        eAttemptsInfo.setText("Attempts Left: " + counter);
+
                         if(counter == 0){
                             eLogin.setEnabled(false);
                         }
@@ -61,7 +64,8 @@ public class MainActivity extends AppCompatActivity {
                     else{
                         Toast.makeText(MainActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
 
-                        //add the code to go to new activity
+                        Intent intent = new Intent(MainActivity.this, HomePageActivity.class);
+                        startActivity(intent);
                     }
                 }
             }
