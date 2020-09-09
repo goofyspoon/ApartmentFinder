@@ -17,8 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private Button eLogin;
     private TextView eAttemptsInfo;
 
-    private String Username = "Admin";
-    private String Password = "12345678";
+    Credentials credentials = new Credentials("Admin", "12345678");
 
     boolean isValid = false;
     private int counter = 5;
@@ -74,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean validate(String name, String password){
 
-        if(name.equals(Username) & password.equals(Password)) {
+        if(name.equals(credentials.getUsername()) & password.equals(credentials.getPassword())) {
             return true;
         }
         return false;
