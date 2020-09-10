@@ -3,6 +3,7 @@ package com.example.loginapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,8 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText ePassword;
     private Button eLogin;
     private TextView eAttemptsInfo;
-
-    Credentials credentials = new Credentials("Admin", "12345678");
+    private TextView eRegister;
 
     boolean isValid = false;
     private int counter = 5;
@@ -31,6 +31,14 @@ public class MainActivity extends AppCompatActivity {
         ePassword = findViewById(R.id.etPassword);
         eLogin = findViewById(R.id.btnLogin);
         eAttemptsInfo = findViewById(R.id.tvAttemptsInfo);
+        eRegister = findViewById(R.id.tvRegister);
+
+        eRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
+            }
+        });
 
         eLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,10 +80,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean validate(String name, String password){
-
-        if(name.equals(credentials.getUsername()) & password.equals(credentials.getPassword())) {
-            return true;
+        if(RegistrationActivity.credentials != null){
+            if(name.equals(RegistrationActivity.credentials.getUsername()) & password.equals(RegistrationActivity.credentials.getPassword())) {
+                return true;
+            }
         }
+
         return false;
     }
 }
