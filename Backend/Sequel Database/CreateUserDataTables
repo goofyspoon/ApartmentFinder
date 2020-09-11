@@ -1,0 +1,24 @@
+CREATE TABLE Owners
+(
+    userName varchar(20),
+    pass varchar(30),
+    email varchar(50)
+)
+CREATE TABLE Admins
+(
+    userName varchar(20),
+    pass varchar(30),
+    email varchar(50)
+)
+CREATE TABLE maintainers
+(
+    userName varchar(20),
+    pass varchar(30),
+    email varchar(50)
+)
+CREATE TABLE users
+(
+    userName varchar(20),
+    pass varchar(30),
+    email varchar(50)
+)
