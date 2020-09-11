@@ -26,5 +26,14 @@ CREATE TABLE superuser
 (
     userName varchar(20),
     pass varchar(30),
-    email varchar(50)
+    email varchar(50),
+    walletID integer
+)
+
+CREATE TABLE wallet
+(
+    id integer,
+    bankAccountNum integer,
+    bankRoutingNum integer,
+    balance integer
 )
