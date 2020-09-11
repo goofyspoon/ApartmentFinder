@@ -22,3 +22,9 @@ CREATE TABLE users
     pass varchar(30),
     email varchar(50)
 )
+CREATE TABLE superuser
+(
+    userName varchar(20),
+    pass varchar(30),
+    email varchar(50)
+)
