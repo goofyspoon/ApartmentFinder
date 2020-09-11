@@ -35,5 +35,5 @@ CREATE TABLE wallet
     id integer,
     bankAccountNum integer,
     bankRoutingNum integer,
-    balance integer
+    balance double(10, 2)
 )
