@@ -2,32 +2,37 @@ CREATE TABLE Owners
 (
     userName varchar(20),
     pass varchar(30),
-    email varchar(50)
+    email varchar(50),
+    pin integer
 )
 CREATE TABLE Admins
 (
     userName varchar(20),
     pass varchar(30),
-    email varchar(50)
+    email varchar(50),
+    pin integer
 )
 CREATE TABLE maintainers
 (
     userName varchar(20),
     pass varchar(30),
-    email varchar(50)
+    email varchar(50),
+    pin integer
 )
 CREATE TABLE users
 (
     userName varchar(20),
     pass varchar(30),
-    email varchar(50)
+    email varchar(50),
+    pin integer
 )
 CREATE TABLE superuser
 (
     userName varchar(20),
     pass varchar(30),
     email varchar(50),
-    walletID integer
+    walletID integer,
+    pin integer
 )
 
 CREATE TABLE wallet
@@ -35,5 +40,6 @@ CREATE TABLE wallet
     id integer,
     bankAccountNum integer,
     bankRoutingNum integer,
-    balance double(10, 2)
+    balance double(10, 2),
+    pin integer
 )
