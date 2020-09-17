@@ -33,19 +33,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9c83fcb-ef55-4e21-9ebf-903077a3ce2a" name="Default Changelist" comment="revert pom">
-      <change afterPath="$PROJECT_DIR$/Backend/Adrian/betterOne/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/Adrian/betterOne/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/Adrian/betterOne/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/Adrian/betterOne/src/main/java/myProject/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/Adrian/betterOne/src/main/java/myProject/MyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/Adrian/betterOne/src/main/java/myProject/MyDatabase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/Adrian/betterOne/src/main/java/myProject/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/Adrian/betterOne/src/main/java/myProject/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/Adrian/betterOne/src/main/java/myProject/Users.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/Adrian/betterOne/src/main/java/myProject/UsersDB.java" afterDir="false" />
+    <list default="true" id="c9c83fcb-ef55-4e21-9ebf-903077a3ce2a" name="Default Changelist" comment="create a better springboot database">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/Adrian/demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Adrian/demo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Adrian/betterOne/src/main/java/myProject/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Adrian/betterOne/src/main/java/myProject/UserController.java" afterDir="false" />
     </list>
     <list id="2df1a2a8-fe24-4401-9da5-fbb40322a633" name="unnecesary" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -126,7 +116,7 @@
       <workItem from="1600281118913" duration="4828000" />
       <workItem from="1600313668218" duration="590000" />
       <workItem from="1600314273759" duration="747000" />
-      <workItem from="1600315118272" duration="4813000" />
+      <workItem from="1600315118272" duration="5072000" />
     </task>
     <task id="LOCAL-00001" summary="Created a hello world springboot file, and set up vcs for springboot">
       <created>1598387820035</created>
@@ -247,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600316901718</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="create a better springboot database">
+      <created>1600320001023</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1600320001023</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,7 +293,8 @@
     <MESSAGE value="commented out line 12" />
     <MESSAGE value="?" />
     <MESSAGE value="revert pom" />
-    <option name="LAST_COMMIT_MESSAGE" value="revert pom" />
+    <MESSAGE value="create a better springboot database" />
+    <option name="LAST_COMMIT_MESSAGE" value="create a better springboot database" />
   </component>
   <component name="WindowStateProjectService">
     <state x="711" y="344" key="#Notifications" timestamp="1600317395950">
@@ -335,22 +333,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="315" y="215" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1600318464684" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1600318185450">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1600320070223">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1600318185450" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1600318185450">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1600320070223" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1600320070223">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1600318185450" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1600318185450">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1600320070223" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1600320070223">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1600318185450" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1600318185450">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1600320070223" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1600320070223">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1600318185450" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1600320070223" />
     <state x="368" y="158" key="SettingsEditor" timestamp="1600317384647">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -367,10 +365,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="813" y="434" key="VCS.EditChangelistDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600281343955" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1600316906930">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1600320016101">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600316906930" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600320016101" />
     <state x="694" y="254" key="VcsDiffUtil.ChangesDialog" timestamp="1600281247589">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
