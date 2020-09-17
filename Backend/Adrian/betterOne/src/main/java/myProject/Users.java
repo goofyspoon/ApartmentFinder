@@ -8,7 +8,7 @@ class Users{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    Integer userId;
 
     @Column String userName;
 
@@ -29,17 +29,17 @@ class Users{
         this.userName = userName;
     }
 
-  //public void setUserId(Integer userId) {
-    //  this.userId = userId;
-   //}
+  public void setUserId(Integer userId) {
+     this.userId = userId;
+   }
 
-    public Integer getId() {
+    /*public Integer getId() {
         return id;
-    }
+    }*/
 
-    //public Integer getUserId() {
-   //     return userId;
-   // }
+    public Integer getUserId() {
+       return userId;
+    }
 
     public String getUserName() {
         return userName;
