@@ -9,14 +9,11 @@ class Users{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer userId;
 
-    @Colunm
-    String userName;
+    @Column String userName;
 
-    @Colunm
-    String password;
+    @Column String password;
 
-    @Colunm
-    String email;
+    @Column String email;
 
     public Integer getUserId() {
         return userId;
@@ -33,7 +30,5 @@ class Users{
     public String getEmail() {
         return email;
     }
-    public void setType(String type) {
-        this.type = type;
-    }
+   // public void setType(String type) { this.type = type; }
 }
