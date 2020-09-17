@@ -5,6 +5,9 @@
       <config />
     </shared>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -30,7 +33,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9c83fcb-ef55-4e21-9ebf-903077a3ce2a" name="Default Changelist" comment="something" />
+    <list default="true" id="c9c83fcb-ef55-4e21-9ebf-903077a3ce2a" name="Default Changelist" comment="something 2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <list id="2df1a2a8-fe24-4401-9da5-fbb40322a633" name="unnecesary" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +67,7 @@
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -69,6 +75,17 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Unnamed" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="cy_04" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -90,6 +107,7 @@
       <workItem from="1598647183721" duration="2559000" />
       <workItem from="1599794425623" duration="4951000" />
       <workItem from="1600281118913" duration="4828000" />
+      <workItem from="1600313668218" duration="590000" />
     </task>
     <task id="LOCAL-00001" summary="Created a hello world springboot file, and set up vcs for springboot">
       <created>1598387820035</created>
@@ -161,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600313544677</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="something 2">
+      <created>1600313697246</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1600313697246</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,7 +228,8 @@
     <MESSAGE value="added back pin from rollback" />
     <MESSAGE value="added springboot test files" />
     <MESSAGE value="something" />
-    <option name="LAST_COMMIT_MESSAGE" value="something" />
+    <MESSAGE value="something 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="something 2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="98" key="#Project_Structure" timestamp="1600312555243">
@@ -222,10 +248,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="208" y="325" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1599794525239" />
-    <state x="1028" y="477" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1600313419374">
+    <state x="1028" y="477" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1600313819488">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1028" y="477" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600313419374" />
+    <state x="1028" y="477" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600313819488" />
     <state x="-196" y="266" width="1736" height="856" key="DiffContextDialog" timestamp="1599073063269">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -234,6 +260,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="315" y="215" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1600313484578" />
+    <state x="368" y="158" key="SettingsEditor" timestamp="1600314223203">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="368" y="158" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1600314223203" />
     <state x="747" y="236" key="VCS.ChangeListViewerDialog" timestamp="1598388482070">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -246,10 +276,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="813" y="434" key="VCS.EditChangelistDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600281343955" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1600313546976">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1600313700026">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600313546976" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600313700026" />
     <state x="694" y="254" key="VcsDiffUtil.ChangesDialog" timestamp="1600281247589">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -266,9 +296,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="642" y="251" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1600311979767" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1598398252312">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1600314246761">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598398252312" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1600314246761" />
   </component>
 </project>
