@@ -1,4 +1,4 @@
-package myProject;
+/*package myProject;
 
 import java.util.List;
 
@@ -41,4 +41,4 @@ public class MyController {
 		return "deleted " + id;
 	}
 
-}
+}*/

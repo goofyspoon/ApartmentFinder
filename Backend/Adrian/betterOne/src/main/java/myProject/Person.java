@@ -1,4 +1,4 @@
-package myProject;
+/*package myProject;
 
 import javax.persistence.*;
 
@@ -22,4 +22,4 @@ class Person {
 	public void setAddress(String address) { this.address = address; }
 	
 	
-}
+}*/

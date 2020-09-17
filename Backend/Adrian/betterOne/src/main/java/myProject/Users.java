@@ -1,7 +1,6 @@
 package myProject;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Entity
 class Users{
@@ -17,6 +16,11 @@ class Users{
     @Column String email;
 
 
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+
     public void setPassword(String password) {
         this.password = password;
     }
@@ -25,20 +29,8 @@ class Users{
         this.email = email;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-  public void setUserId(Integer userId) {
-     this.userId = userId;
-   }
-
-    /*public Integer getId() {
-        return id;
-    }*/
-
     public Integer getUserId() {
-       return userId;
+        return userId;
     }
 
     public String getUserName() {
@@ -52,5 +44,7 @@ class Users{
     public String getEmail() {
         return email;
     }
-   // public void setType(String type) { this.type = type; }
+
+
+    // public void setType(String type) { this.type = type; }
 }
