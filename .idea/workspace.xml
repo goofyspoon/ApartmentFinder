@@ -30,7 +30,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9c83fcb-ef55-4e21-9ebf-903077a3ce2a" name="Default Changelist" comment="added springboot test files" />
+    <list default="true" id="c9c83fcb-ef55-4e21-9ebf-903077a3ce2a" name="Default Changelist" comment="something" />
     <list id="2df1a2a8-fe24-4401-9da5-fbb40322a633" name="unnecesary" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,19 +69,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Unnamed" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="cy_04" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -102,7 +89,7 @@
       <workItem from="1598387294979" duration="3009000" />
       <workItem from="1598647183721" duration="2559000" />
       <workItem from="1599794425623" duration="4951000" />
-      <workItem from="1600281118913" duration="4709000" />
+      <workItem from="1600281118913" duration="4828000" />
     </task>
     <task id="LOCAL-00001" summary="Created a hello world springboot file, and set up vcs for springboot">
       <created>1598387820035</created>
@@ -167,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600313006185</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="something">
+      <created>1600313544677</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1600313544677</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,7 +202,8 @@
     <MESSAGE value="added a pin to secure bank account info" />
     <MESSAGE value="added back pin from rollback" />
     <MESSAGE value="added springboot test files" />
-    <option name="LAST_COMMIT_MESSAGE" value="added springboot test files" />
+    <MESSAGE value="something" />
+    <option name="LAST_COMMIT_MESSAGE" value="something" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="98" key="#Project_Structure" timestamp="1600312555243">
@@ -251,10 +246,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="813" y="434" key="VCS.EditChangelistDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600281343955" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1600313012961">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1600313546976">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600313012961" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600313546976" />
     <state x="694" y="254" key="VcsDiffUtil.ChangesDialog" timestamp="1600281247589">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
