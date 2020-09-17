@@ -11,16 +11,26 @@ public class UserController {
     @Autowired
     UsersDB db;
 
+    @Autowired
+    LoginDB db2;
+
 
     @RequestMapping("/Users")
     List<Users> hello() {
         return db.findAll();
     }
 
+
     @PostMapping("/Users")
-    Users createPerson(@RequestBody Users u) {
+    Users createUser(Users u) {
         db.save(u);
         return u;
+    }
+
+    @PostMapping("/Login")
+    Login createUser(@RequestBody Login requestBody) {
+        db2.save(requestBody);
+        return requestBody;
     }
 
 }
