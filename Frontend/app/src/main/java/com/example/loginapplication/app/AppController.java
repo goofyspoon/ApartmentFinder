@@ -12,7 +12,8 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 import com.example.loginapplication.net_utils.LruBitmapCache;
 
-public class AppController extends Application {
+//extends Application
+public class AppController extends Application{
     public static final String TAG = AppController.class.getSimpleName();
 
     private RequestQueue mRequestQueue;
