@@ -14,3 +14,6 @@ build.gradle
 /captures
 .externalNativeBuild
 .cxx
+.idea/.gitignore
+.idea/codeStyles/Project.xml
+.idea/cy_04.iml
