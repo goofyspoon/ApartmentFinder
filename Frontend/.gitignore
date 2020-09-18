@@ -1,6 +1,12 @@
 *.iml
 .gradle
-/local.properties
+gradle/
+gradlew
+gradlew.bat
+local.properties
+myversion/
+gradle.properties
+settings.gradle
 .idea/
 .DS_Store
 /build
