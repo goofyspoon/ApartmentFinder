@@ -2,12 +2,12 @@ package com.example.loginapplication.net_utils;
 
 import com.android.volley.toolbox.ImageLoader.ImageCache;
 import android.graphics.Bitmap;
-import android.support.v4.util.LruCache;
 
 //Is this the correct import?
 import android.util.LruCache;
 
 public class LruBitmapCache extends LruCache<String, Bitmap> implements ImageCache{
+
     public static int getDefaultLruCacheSize(){
         final int maxMemory = (int) (Runtime.getRuntime().maxMemory()/1024);
         final int cacheSize = maxMemory / 8;
@@ -18,7 +18,7 @@ public class LruBitmapCache extends LruCache<String, Bitmap> implements ImageCac
         this(getDefaultLruCacheSize());
     }
 
-    public LruBitmapCache(int sizeInKilBytes){
+    public LruBitmapCache(int sizeInKiloBytes){
         super(sizeInKiloBytes);
     }
 

@@ -2,6 +2,7 @@ package com.example.loginapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -34,7 +35,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
                 if(validate(regUsername, regPassword)){
                     credentials = new Credentials(regUsername,regPassword);
-                    startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
+                    startActivity(new Intent(RegistrationActivity.this, HomePageActivity.class));
                     Toast.makeText(RegistrationActivity.this, "Registration successful!", Toast.LENGTH_SHORT).show();
                 }
 
