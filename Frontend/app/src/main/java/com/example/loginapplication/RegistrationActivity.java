@@ -63,14 +63,14 @@ public class RegistrationActivity extends AppCompatActivity {
                 JSONObject object = new JSONObject();
                 try {
                     //Input API parameters
-                    object.put("username", "username");
-                    object.put("password", "password");
+                    object.put("username", ""+ eRegName);
+                    object.put("password", "" + eRegPassword);
                 } catch (JSONException error) {
                     Log.d(TAG, "Response is: " + error.getMessage() + "");
                 }
 
                 JsonObjectRequest jRequest = new JsonObjectRequest(
-                        Request.Method.GET, url, object,
+                        Request.Method.POST, Const.URL_JSON_OBJECT + "/user", object,
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
