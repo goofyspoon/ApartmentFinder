@@ -16,6 +16,10 @@ class Users{
     @Column String email;
 
 
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
     public void setUserName(String userName) {
         this.userName = userName;
     }
@@ -25,9 +29,7 @@ class Users{
         this.password = password;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public void setEmail(String email) {this.email = email; }
 
     public Integer getUserId() {
         return userId;

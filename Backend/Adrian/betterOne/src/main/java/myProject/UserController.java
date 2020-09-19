@@ -11,34 +11,35 @@ public class UserController {
     @Autowired
     UsersDB db;
 
-    @RequestMapping("/Users")
+    @GetMapping("/Users")
     List<Users> hello() {
         return db.findAll();
     }
 
 
-    @PostMapping("/Users")
+    @PostMapping("/User")
     Users createUser(Users u) {
         db.save(u);
         return u;
     }
 
-    @GetMapping("/Users/{userId}")
-    public Users getUserByUserID(@PathVariable(value = "userId") int userId){
+    @GetMapping("/User/{userId}")
+    public Users getByUserID(@PathVariable(value = "userId") int userId){
+        System.out.println("ERROR" + userId);
         return db.findByUserId(userId);
     }
 
-    @DeleteMapping("/Users/{userId}")
+    @DeleteMapping("/User/{userId}")
     public Users deleteUserByID(@PathVariable(value = "userId") int userId){
         return db.deleteByUserId(userId);
     }
 
-    @GetMapping("/Users/{userName}")
-    public Users getUserByUserName(@PathVariable(value = "userName") String userName){
-        return db.findByUserName(userName);
-    }
+    //@GetMapping("/User/{userName}")
+    //public Users getUserByUserName(@PathVariable(value = "userName") String userName){
+    //    return db.findByUserName(userName);
+    //}
 
-    @DeleteMapping("/Users/{userName}")
+    @DeleteMapping("/User/{userName}")
     public Users deleteUserByID(@PathVariable(value = "userName") String userName){
         return db.deleteByUserName(userName);
     }
