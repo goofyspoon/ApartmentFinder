@@ -13,11 +13,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.loginapplication.app.AppController;
 import com.example.loginapplication.AppController2;
+import com.example.loginapplication.net_utils.Const;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class RegistrationActivity extends AppCompatActivity {
     public static final String TAG = RegistrationActivity.class.getSimpleName();
@@ -49,16 +56,28 @@ public class RegistrationActivity extends AppCompatActivity {
 //                }
 
                 String url = "http://google.com";
-                StringRequest sRequest = new StringRequest(
-                        Request.Method.GET, url,
-                        new Response.Listener<String>() {
+
+                RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+
+                //showProgressDialog();
+                JSONObject object = new JSONObject();
+                try {
+                    //Input API parameters
+                    object.put("username", "username");
+                    object.put("password", "password");
+                } catch (JSONException error) {
+                    Log.d(TAG, "Response is: " + error.getMessage() + "");
+                }
+
+                JsonObjectRequest jRequest = new JsonObjectRequest(
+                        Request.Method.GET, url, object,
+                        new Response.Listener<JSONObject>() {
                             @Override
-                            public void onResponse(String response) {
+                            public void onResponse(JSONObject response) {
                                 System.out.println("Response is: " + response);
                                 Log.d(TAG, "Response is: " + response);
                                 credentials = new Credentials(regUsername, regPassword);
                                 startActivity(new Intent(RegistrationActivity.this, HomePageActivity.class));
-
                                 Toast.makeText(RegistrationActivity.this, "Registration successful!", Toast.LENGTH_SHORT).show();
                             }
                         },
@@ -71,20 +90,61 @@ public class RegistrationActivity extends AppCompatActivity {
                             }
                         }
                 );
-                //AppController2.getInstance(sRequest).addRequestQueue();
-                Log.d(TAG, "Adding the following to Request Queue: " + sRequest);
-                System.out.println("Adding the following to Request Queue: " + sRequest);
-                AppController.getInstance().addToRequestQueue(sRequest);
+
+
+                    //
+
+                    Log.d(TAG, "Adding the following to Request Queue: " + jRequest);
+                    System.out.println("Adding the following to Request Queue: " + jRequest);
+                    AppController.getInstance().addToRequestQueue(jRequest);
+                    //
+                }
             }
                 //AppController2.getInstance(sRequest).addRequestQueue();
                 //AppController.getInstance().addRequestQueue(sRequest);
 
-        });
+        );}
 
 //        AppController2.getInstance(sRequest).addRequestQueue();
 //        AppController.getInstance().addToRequestQueue(sRequest);
 
-    }
+
+
+//    public void makeJsonObjReq() {
+//        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+//
+//        //showProgressDialog();
+//        JSONObject object = new JSONObject();
+//        try {
+//            //Input API parameters
+//            object.put("username", "username");
+//            object.put("password", "password");
+//        } catch (JSONException error) {
+//            Log.d(TAG, "Response is: " + error.getMessage() + "");
+//        }
+//
+//        JsonObjectRequest jRequest = new JsonObjectRequest(
+//                Request.Method.POST, Const.URL_JSON_OBJECT, object,
+//                new Response.Listener<JSONObject>() {
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//                        System.out.println("Response is: " + response);
+//                        Log.d(TAG, "Response is: " + response);
+//                        credentials = new Credentials(regUsername, regPassword);
+//                        startActivity(new Intent(RegistrationActivity.this, HomePageActivity.class));
+//                        Toast.makeText(RegistrationActivity.this, "Registration successful!", Toast.LENGTH_SHORT).show();
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        //Log that
+//                        System.out.println("There was an error dog: " + error.getMessage() + "");
+//                        Log.d(TAG, "Error is: " + error.getMessage() + "");
+//                    }
+//                }
+//        );
+//    }
 
     private boolean validate(String username, String password){
 
