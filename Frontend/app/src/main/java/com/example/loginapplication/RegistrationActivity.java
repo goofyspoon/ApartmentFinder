@@ -55,11 +55,8 @@ public class RegistrationActivity extends AppCompatActivity {
 //                    Toast.makeText(RegistrationActivity.this, "Registration successful!", Toast.LENGTH_SHORT).show();
 //                }
 
-                String url = "http://google.com";
-
                 RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
 
-                //showProgressDialog();
                 JSONObject object = new JSONObject();
                 try {
                     //Input API parameters
@@ -91,61 +88,13 @@ public class RegistrationActivity extends AppCompatActivity {
                             }
                         }
                 );
-
-
-                    //
-
                     Log.d(TAG, "Adding the following to Request Queue: " + jRequest);
                     System.out.println("Adding the following to Request Queue: " + jRequest);
                     AppController.getInstance().addToRequestQueue(jRequest);
-                    //
                 }
             }
-                //AppController2.getInstance(sRequest).addRequestQueue();
-                //AppController.getInstance().addRequestQueue(sRequest);
-
         );}
 
-//        AppController2.getInstance(sRequest).addRequestQueue();
-//        AppController.getInstance().addToRequestQueue(sRequest);
-
-
-
-//    public void makeJsonObjReq() {
-//        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-//
-//        //showProgressDialog();
-//        JSONObject object = new JSONObject();
-//        try {
-//            //Input API parameters
-//            object.put("username", "username");
-//            object.put("password", "password");
-//        } catch (JSONException error) {
-//            Log.d(TAG, "Response is: " + error.getMessage() + "");
-//        }
-//
-//        JsonObjectRequest jRequest = new JsonObjectRequest(
-//                Request.Method.POST, Const.URL_JSON_OBJECT, object,
-//                new Response.Listener<JSONObject>() {
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        System.out.println("Response is: " + response);
-//                        Log.d(TAG, "Response is: " + response);
-//                        credentials = new Credentials(regUsername, regPassword);
-//                        startActivity(new Intent(RegistrationActivity.this, HomePageActivity.class));
-//                        Toast.makeText(RegistrationActivity.this, "Registration successful!", Toast.LENGTH_SHORT).show();
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        //Log that
-//                        System.out.println("There was an error dog: " + error.getMessage() + "");
-//                        Log.d(TAG, "Error is: " + error.getMessage() + "");
-//                    }
-//                }
-//        );
-//    }
 
     private boolean validate(String username, String password){
 
