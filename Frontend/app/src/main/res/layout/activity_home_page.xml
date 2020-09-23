@@ -17,4 +17,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.292" />
+
+    <Button
+        android:id="@+id/AdminButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Admin Page"
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="373dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
