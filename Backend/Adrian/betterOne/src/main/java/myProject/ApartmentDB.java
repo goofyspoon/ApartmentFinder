@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @Repository
-public interface ApartmentsDB extends JpaRepository<Apartments, Integer> {
+public interface ApartmentDB extends JpaRepository<Apartments, Integer> {
 
     List<Apartments> findByApartmentId(int userId);
     List<Apartments> deleteByApartmentId(int userId);

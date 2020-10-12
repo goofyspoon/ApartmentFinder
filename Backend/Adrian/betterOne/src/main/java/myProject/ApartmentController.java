@@ -9,44 +9,44 @@ import org.springframework.web.bind.annotation.*;
 public class ApartmentController {
 
     @Autowired
-    ApartmentsDB db;
+    ApartmentDB database;
 
     @GetMapping("/Apartments")
     List<Apartments> hello() {
-        return db.findAll();
+        return database.findAll();
     }
 
 
     @PostMapping("/Apartment")
     Apartments createApartment(Apartments apartment) {
-        db.save(apartment);
+        database.save(apartment);
         return apartment;
     }
 
     @GetMapping("/Apartments/{apartmentId}")
     public List<Apartments> findByApartmentId(@PathVariable(value = "userId") int userId){
         System.out.println("ERROR" + userId);
-        return (List<Apartments>) db.findByApartmentId(userId);
+        return (List<Apartments>) database.findByApartmentId(userId);
     }
 
     @DeleteMapping("/Apartments/{userId}")
     public List<Apartments> deleteByUserId(@PathVariable(value = "userId") int userId){
-        return (List<Apartments>) db.deleteByApartmentId(userId);
+        return (List<Apartments>) database.deleteByApartmentId(userId);
     }
 
     @GetMapping("/Apartments/{userName}")
     public List<Apartments> findByApartmentName(@PathVariable(value = "userName") String userName){
-        return (List<Apartments>) db.findByApartmentName(userName);
+        return (List<Apartments>) database.findByApartmentName(userName);
     }
 
     @DeleteMapping("/Apartments/{userName}")
     public List<Apartments> deleteByUserId(@PathVariable(value = "userName") String userName){
-        return db.deleteByApartmentName(userName);
+        return database.deleteByApartmentName(userName);
     }
 
     @DeleteMapping("/Apartments")
     public void deleteAll(){
-        db.deleteAll();
+        database.deleteAll();
     }
 
 
