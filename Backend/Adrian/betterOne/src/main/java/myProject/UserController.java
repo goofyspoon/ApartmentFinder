@@ -26,7 +26,7 @@ public class UserController {
     @GetMapping("/Users/{userId}")
     public List<Users> findByUserId(@PathVariable(value = "userId") int userId){
         System.out.println("ERROR" + userId);
-        return (List<Users>) db.findOne(userId);
+        return (List<Users>) db.findByUserId(userId);
     }
 
     @DeleteMapping("/Users/{userId}")
