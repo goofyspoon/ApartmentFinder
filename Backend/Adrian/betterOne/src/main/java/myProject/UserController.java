@@ -23,24 +23,24 @@ public class UserController {
         return u;
     }
 
-    @GetMapping("/User/{userId}")
-    public Users getByUserID(@PathVariable(value = "userId") int userId){
+    @GetMapping("/Users/{userId}")
+    public List<Users> findByUserId(@PathVariable(value = "userId") int userId){
         System.out.println("ERROR" + userId);
-        return db.findOne(userId);
+        return (List<Users>) db.findOne(userId);
     }
 
-    @DeleteMapping("/User/{userId}")
-    public Users deleteUserByID(@PathVariable(value = "userId") int userId){
-        return db.deleteByUserId(userId);
+    @DeleteMapping("/Users/{userId}")
+    public List<Users> deleteByUserId(@PathVariable(value = "userId") int userId){
+        return (List<Users>) db.deleteByUserId(userId);
     }
 
-    //@GetMapping("/User/{userName}")
-    //public Users getUserByUserName(@PathVariable(value = "userName") String userName){
-    //    return db.findByUserName(userName);
-    //}
+    @GetMapping("/User/{userName}")
+    public List<Users> findByUserName(@PathVariable(value = "userName") String userName){
+       return (List<Users>) db.findByUserName(userName);
+    }
 
     @DeleteMapping("/User/{userName}")
-    public Users deleteUserByID(@PathVariable(value = "userName") String userName){
+    public List<Users> deleteByUserId(@PathVariable(value = "userName") String userName){
         return db.deleteByUserName(userName);
     }
 

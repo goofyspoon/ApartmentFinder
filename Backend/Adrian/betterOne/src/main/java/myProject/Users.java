@@ -5,6 +5,8 @@ import javax.persistence.*;
 @Entity
 class Users{
 
+    //need preferences (budget, location(east,south,west,north,on campus), bedroom number)
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer userId;
