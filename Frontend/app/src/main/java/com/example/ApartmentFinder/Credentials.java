@@ -1,4 +1,4 @@
-package com.example.loginapplication;
+package com.example.ApartmentFinder;
 
 public class Credentials {
 

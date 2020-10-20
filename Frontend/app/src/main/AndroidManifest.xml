@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.loginapplication">
+    package="com.example.ApartmentFinder">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.example.loginapplication.app.AppController"
+        android:name="com.example.ApartmentFinder.app.AppController"
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,10 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegistrationActivity"></activity>
-        <activity android:name=".HomePageActivity" />
-        <activity android:name=".JsonRequestActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.ApartmentFinder.registration.RegistrationActivity"></activity>
+        <activity android:name="com.example.ApartmentFinder.search_page.SearchPageActivity"></activity>
+        <activity android:name="com.example.ApartmentFinder.HomePageActivity" />
+        <activity android:name="com.example.ApartmentFinder.JsonRequestActivity" />
+        <activity android:name="com.example.ApartmentFinder.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
