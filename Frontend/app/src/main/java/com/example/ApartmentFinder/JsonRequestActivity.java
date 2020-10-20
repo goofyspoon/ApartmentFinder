@@ -1,4 +1,4 @@
-package com.example.loginapplication;
+package com.example.ApartmentFinder;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +13,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
-import com.example.loginapplication.app.AppController;
+import com.example.ApartmentFinder.app.AppController;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

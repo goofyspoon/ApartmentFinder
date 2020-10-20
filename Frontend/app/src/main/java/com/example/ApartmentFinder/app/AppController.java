@@ -10,7 +10,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
-import com.example.loginapplication.net_utils.LruBitmapCache;
+import com.example.ApartmentFinder.net_utils.LruBitmapCache;
 
 //extends Application
 public class AppController extends Application{
