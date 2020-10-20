@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
         <activity android:name="com.example.ApartmentFinder.registration.RegistrationActivity"></activity>
         <activity android:name="com.example.ApartmentFinder.search_page.SearchPageActivity"></activity>
-        <activity android:name="com.example.ApartmentFinder.HomePageActivity" />
+        <activity android:name="com.example.ApartmentFinder.home.HomePageActivity" />
         <activity android:name="com.example.ApartmentFinder.JsonRequestActivity" />
         <activity android:name="com.example.ApartmentFinder.MainActivity">
             <intent-filter>
