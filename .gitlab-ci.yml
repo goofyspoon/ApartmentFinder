@@ -1,0 +1,52 @@
+#Backend tests:
+maven-build:
+    stage: mavenbuild
+    tags:
+        - shell
+    script:
+        - cd Spring
+        - mvnpackage –B
+        #Note –B means batch mode
+maven-test:
+    stage: maventest
+    tags:
+        - shell
+    script:
+        - cd Spring
+        - mvntest
+    artifacts:
+        paths:
+            - Spring/target/*.jar
+autoDeploy:
+    stage: autodeploy
+    tags:
+        - shell
+    script:
+        - cd Spring
+        - mvn package
+        - sudomv target/*.jar /target/web-demo.jar
+        - sudosystemctlstop web-demo
+        - sudosystemctlstart web-demo
+#Frontend Tests:
+android-build:
+    image: javiersantos/android-ci:latest
+    stage: androidbuild
+    before_script:
+        - export GRADLE_USER_HOME=`pwd`/. gradle
+        - chmod+x ./Android_test/gradlew
+    tags: - FRONTEND
+        script:
+        - cd   Android_test
+        - ./gradlewassemble
+    artifacts:
+    paths: - Android_test/app/build/outputs/
+unitTests:
+    image: javiersantos/android-ci:latest
+    stage: androidtest
+    before_script:
+        - export GRADLE_USER_HOME=`pwd`/.gradle
+        - chmod+x ./Android_test/gradlew
+    tags:
+        - FRONTEND
+    script: - cd  Android_test
+    - ./gradlewtest
