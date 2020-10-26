@@ -34,8 +34,9 @@ android-build:
     before_script:
         - export GRADLE_USER_HOME=`pwd`/.gradle
         - chmod+x ./Android_test/gradlew
-    tags: - FRONTEND
-        script:
+    tags:
+        - FRONTEND
+    script:
         - cd Android_test
         - ./gradlew assemble
     artifacts:
