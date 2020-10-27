@@ -10,12 +10,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ApartmentFinder.Credentials;
-import com.example.ApartmentFinder.HomePageActivity;
+import com.example.ApartmentFinder.Volley.IView;
 import com.example.ApartmentFinder.app.AppController;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ApartmentFinder.R;
+import com.example.ApartmentFinder.home.HomeActivity;
 //import com.example.loginapplication.home.HomePageActivity;
 
 import org.json.JSONException;
@@ -60,7 +61,7 @@ public class RegistrationActivity extends AppCompatActivity implements IView {
                     String email = eRegEmail.getText().toString();
                     String password = eRegPassword.getText().toString();
                     logic.registerUser(username, email, password);
-                    startActivity(new Intent(RegistrationActivity.this, HomePageActivity.class));
+                    startActivity(new Intent(RegistrationActivity.this, HomeActivity.class));
                 }catch(JSONException e){
                     e.printStackTrace();
                 }
@@ -71,8 +72,8 @@ public class RegistrationActivity extends AppCompatActivity implements IView {
 
     @Override
     public void showText(String s){
-        registerErrorTextView.setText(s);
-        registerErrorTextView.setVisibility(View.VISIBLE);
+        //registerErrorTextView.setText(s);
+        //registerErrorTextView.setVisibility(View.VISIBLE);
     }
 
     @Override

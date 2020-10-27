@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.ApartmentFinder.home.HomeActivity;
 import com.example.ApartmentFinder.registration.RegistrationActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -72,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     else{
                         Toast.makeText(MainActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
 
-                        Intent intent = new Intent(MainActivity.this, HomePageActivity.class);
+                        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                         startActivity(intent);
                     }
                 }

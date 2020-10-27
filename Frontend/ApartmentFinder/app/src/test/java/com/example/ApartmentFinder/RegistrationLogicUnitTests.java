@@ -1,8 +1,8 @@
 package com.example.ApartmentFinder;
 
-import com.example.ApartmentFinder.registration.IServerRequest;
+import com.example.ApartmentFinder.Volley.IServerRequest;
 import com.example.ApartmentFinder.net_utils.Const;
-import com.example.ApartmentFinder.registration.IView;
+import com.example.ApartmentFinder.Volley.IView;
 
 import com.example.ApartmentFinder.registration.RegistrationLogic;
 
