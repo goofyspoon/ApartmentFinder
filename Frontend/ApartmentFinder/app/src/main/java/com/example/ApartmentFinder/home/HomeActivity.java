@@ -38,22 +38,26 @@ public class HomeActivity extends AppCompatActivity implements IView {
         ServerRequest serverRequest = new ServerRequest();
         final HomeLogic logic = new HomeLogic(this, serverRequest);
         ArrayList<Apartment> apartmentArray = new ArrayList<>();
-
-        /**
-        try{
-            apartmentArray = logic.fillApartmentArray();
-        }catch(JSONException e){
+        try {
+            apartmentArray = logic.getAllApartments();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
-**/
 
-        String[] AptNames = getResources().getStringArray(R.array.apartment_names);
-        String[] AptDescriptions = getResources().getStringArray(R.array.apartment_description);
+
+        //String[] AptNames = getResources().getStringArray(R.array.apartment_names);
+        //String[] AptDescriptions = getResources().getStringArray(R.array.apartment_description);
+        String[] apartmentNames = new String[apartmentArray.size()];
+        String[] apartmentAddress = new String[apartmentArray.size()];
+        for(int i = 0; i<apartmentArray.size(); i++){
+            apartmentNames[i]= apartmentArray.get(i).getApartment_name();
+            apartmentAddress[i]= apartmentArray.get(i).getAddress();
+        }
 
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new Adapter(this,AptNames,AptDescriptions);
+        adapter = new Adapter(this,apartmentNames,apartmentAddress);
         recyclerView.setAdapter(adapter);
 
     }

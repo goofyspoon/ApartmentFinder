@@ -1,5 +1,8 @@
 package com.example.ApartmentFinder.app;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Apartment {
     private int apartment_id;
     private String address;
@@ -8,6 +11,16 @@ public class Apartment {
     private int num_rooms;
     private int rating;
     private int rent;
+
+    public Apartment(JSONObject apartment) throws JSONException {
+        this.apartment_id = apartment.getInt("apartment_id");
+        this.address = apartment.getString("address");
+        this.apartment_name = apartment.getString("apartment_name");
+        this.location = apartment.getString("location");
+        this.num_rooms = apartment.getInt("num_rooms");
+        this.rating = apartment.getInt("rating");
+        this.rent = apartment.getInt("rent");
+    }
 
     Apartment(int apartment_id, String address, String apartment_name){
         this.apartment_id = apartment_id;

@@ -7,6 +7,7 @@ public class Const {
     public static final String URL_JSON_ARRAY = "http://api.androidhive.info/volley/person_array.json";
     public static final String URL_STRING_REQ = "http://api.androidhive.info/volley/string_respsonse.html";
     public static final String URL_IMAGE = "http://api.androidhive.info/volley/volley-image.jpg";
+    public static final String postmanURL = "https://667fbc16-a301-4efc-902f-925aa2e5a9bc.mock.pstmn.io";
 
     //SERVER:
     //http://coms-309-cy-04.cs.iastate.edu:8080/blah
