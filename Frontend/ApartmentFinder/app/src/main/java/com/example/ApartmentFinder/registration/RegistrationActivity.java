@@ -21,6 +21,7 @@ import com.example.ApartmentFinder.R;
 import org.json.JSONException;
 
 public class RegistrationActivity extends AppCompatActivity implements IView {
+    EditText eRegEmail;
     EditText eRegName;
     EditText eRegPassword;
     Button eRegister;
@@ -36,13 +37,14 @@ public class RegistrationActivity extends AppCompatActivity implements IView {
 
         setContentView(R.layout.activity_registration);
 
-        //eRegEmail = findViewById(R.id.etRegEmail);
+        eRegEmail = findViewById(R.id.etRegEmail);
         eRegName = findViewById(R.id.etRegName);
         eRegPassword = findViewById(R.id.etRegPassword);
         eRegister = findViewById((R.id.btnRegister));
         //registerErrorTextView = findViewById(R.id.registerErrorMessageField);
 
         if(Build.VERSION.SDK_INT>Build.VERSION_CODES.O){
+            eRegEmail.setAutofillHints(View.AUTOFILL_HINT_EMAIL_ADDRESS);
             eRegName.setAutofillHints(View.AUTOFILL_HINT_USERNAME);
             eRegPassword.setAutofillHints(View.AUTOFILL_HINT_PASSWORD);
         }
@@ -55,9 +57,9 @@ public class RegistrationActivity extends AppCompatActivity implements IView {
             public void onClick(View view){
                 try{
                     String username = eRegName.getText().toString();
-                   // String email = eRegEmail.getText().toString();
+                    String email = eRegEmail.getText().toString();
                     String password = eRegPassword.getText().toString();
-                    logic.registerUser(username, password);
+                    logic.registerUser(username, email, password);
                     startActivity(new Intent(RegistrationActivity.this, HomePageActivity.class));
                 }catch(JSONException e){
                     e.printStackTrace();
