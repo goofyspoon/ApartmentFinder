@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="apartment_names">
+        <item>The Social West Ames Station</item>
+        <item>Union on Lincoln Way</item>
+        <item>South Meadow</item>
+        <item>Gateway</item>
+        <item>Aspen Ames</item>
+        <item>South View Apartments</item>
+        <item>The Social West Ames Steinbeck</item>
+        <item>South Duff</item>
+        <item>Hyland Apartments</item>
+        <item>Somerset Apartments</item>
+    </string-array>
+</resources>
