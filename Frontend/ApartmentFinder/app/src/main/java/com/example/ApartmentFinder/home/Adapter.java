@@ -1,4 +1,4 @@
-package com.example.ApartmentFinder;
+package com.example.ApartmentFinder.home;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.ApartmentFinder.Details;
+import com.example.ApartmentFinder.R;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 

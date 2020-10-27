@@ -1,4 +1,4 @@
-package com.example.ApartmentFinder.registration;
+package com.example.ApartmentFinder.Volley;
 
 public interface IView {
     public void showText(String s);

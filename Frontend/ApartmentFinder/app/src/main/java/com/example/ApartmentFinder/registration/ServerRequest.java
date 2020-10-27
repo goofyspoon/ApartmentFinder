@@ -1,14 +1,21 @@
 package com.example.ApartmentFinder.registration;
 
+import android.util.Log;
+
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.ApartmentFinder.Volley.IServerRequest;
+import com.example.ApartmentFinder.Volley.IVolleyListener;
 import com.example.ApartmentFinder.app.AppController;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class ServerRequest implements IServerRequest{
+public class ServerRequest implements IServerRequest {
     private String tag_json_obj = "json_obj_req";
     private IVolleyListener l;
 
@@ -40,6 +47,8 @@ public class ServerRequest implements IServerRequest{
         );
         AppController.getInstance().addToRequestQueue(registerUserRequest,tag_json_obj);
     }
+
+
 
     public void addVolleyListener(IVolleyListener logic){
         l = logic;
