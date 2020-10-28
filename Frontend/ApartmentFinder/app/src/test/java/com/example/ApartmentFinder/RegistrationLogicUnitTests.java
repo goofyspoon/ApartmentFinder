@@ -1,6 +1,7 @@
 package com.example.ApartmentFinder;
 
 import com.example.ApartmentFinder.Volley.IServerRequest;
+import com.example.ApartmentFinder.app.Apartment;
 import com.example.ApartmentFinder.net_utils.Const;
 import com.example.ApartmentFinder.Volley.IView;
 
@@ -13,6 +14,7 @@ import org.junit.runner.RunWith;
 
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.Assert;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -25,6 +27,9 @@ public class RegistrationLogicUnitTests {
 
     @Mock
     private IServerRequest mockedServerRequest;
+
+    @Mock
+    private Apartment mockedApartment;
 
     @Test
     public void verifySendToServer() throws JSONException {
@@ -64,6 +69,28 @@ public class RegistrationLogicUnitTests {
         logic.onSuccess(testEmail);
         String expectedText = "Error with request, please try again.";
         verify(mockedIView).showText(expectedText);
+    }
+
+    @Test
+    public void testApartment() throws JSONException {
+        JSONObject testObject = new JSONObject();
+        int testApartmentID = 0;
+        int testNumRooms = 0;
+        int testRating = 0;
+        int testRent = 0;
+
+        testObject.put("apartment_id", testApartmentID);
+        testObject.put("num_rooms", testNumRooms);
+        testObject.put("rating", testRating);
+        testObject.put("rent", testRent);
+
+        Apartment testApartment = new Apartment(testObject);
+
+        Assert.assertEquals(testApartmentID, testApartment.getApartment_id());
+        Assert.assertEquals(testNumRooms, testApartment.getNum_rooms());
+        Assert.assertEquals(testRating, testApartment.getRating());
+        Assert.assertEquals(testRent, testApartment.getRent());
+
     }
 
     /**
