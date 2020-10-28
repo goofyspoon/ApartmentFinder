@@ -23,6 +23,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         this.aTitles = titles;
         this.aContent = contents;
     }
+    Adapter(Context context) {
+        this.inflater = LayoutInflater.from(context);
+        this.aTitles = new String[1];
+        this.aContent = new String[1];
+    }
 
 
     @NonNull
