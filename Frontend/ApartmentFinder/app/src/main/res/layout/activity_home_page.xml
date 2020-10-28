@@ -6,15 +6,73 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#00BCD4"
-    tools:context=".HomePageActivity">
+    tools:context=".home.HomeActivity">
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="409dp"
-        android:layout_height="633dp"
+        android:layout_width="412dp"
+        android:layout_height="560dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/budgetMax"
+        app:layout_constraintVertical_bias="0.120000005" />
+
+    <EditText
+        android:id="@+id/budgetMin"
+        android:layout_width="65dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textRent"
+        tools:text="300" />
+
+    <EditText
+        android:id="@+id/budgetMax"
+        android:layout_width="67dp"
+        android:layout_height="41dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/budgetMin"
+        tools:text="2000" />
+
+    <TextView
+        android:id="@+id/textRentMin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Min: "
+        app:layout_constraintBottom_toBottomOf="@+id/budgetMin"
+        app:layout_constraintEnd_toStartOf="@+id/budgetMin"
+        app:layout_constraintTop_toTopOf="@+id/budgetMin" />
+
+    <TextView
+        android:id="@+id/textRentMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Max: "
+        app:layout_constraintBottom_toBottomOf="@+id/budgetMax"
+        app:layout_constraintEnd_toStartOf="@+id/budgetMax"
+        app:layout_constraintTop_toBottomOf="@+id/budgetMin" />
+
+    <TextView
+        android:id="@+id/textRent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Rent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textRentMin"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
