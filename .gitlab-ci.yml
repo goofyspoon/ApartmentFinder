@@ -1,0 +1,42 @@
+stages:
+    - androidbuild
+    - androidtest
+
+#Backend tests:
+
+#Frontend Tests:
+android-build:
+    image: javiersantos/android-ci:latest
+    stage: androidbuild
+    before_script:
+        - export GRADLE_USER_HOME=`pwd`/.gradle
+        - chmod +x ./Frontend/ApartmentFinder/gradlew
+    tags:
+        - FRONTEND
+    script:
+        - cd Frontend/ApartmentFinder
+        - ./gradlew assemble
+    artifacts:
+        paths:
+            - ApartmentFinder/app/build/outputs/
+    only:
+        refs:
+            - master
+        changes:
+            - Frontend/**/*
+unitTests:
+    image: javiersantos/android-ci:latest
+    stage: androidtest
+    before_script:
+        - export GRADLE_USER_HOME=`pwd`/.gradle
+        - chmod +x ./Frontend/ApartmentFinder/gradlew
+    tags:
+        - FRONTEND
+    script:
+        - cd  Frontend/ApartmentFinder
+        - ./gradlew test
+    only:
+        refs:
+            - master
+        changes:
+            - Frontend/**/*
