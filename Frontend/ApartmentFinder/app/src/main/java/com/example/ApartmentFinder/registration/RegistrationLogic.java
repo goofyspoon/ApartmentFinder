@@ -19,7 +19,7 @@ public class RegistrationLogic implements IVolleyListener {
     }
 //http://coms-309-cy-04.cs.iastate.edu:8080/Users?email=mag@iastate.edu&userName=testingFromPostman&password=testingFromPostman
     public JSONObject registerUser(String name, String email, String password) throws JSONException {
-        final String url = Const.URL_JSON_OBJECT + "/Users?email="+email+"&userName="+name+"&password="+password;
+        final String url = Const.URL_JSON_OBJECT + "/User?email="+email+"&userName="+name+"&password="+password;
         JSONObject newUserObj = new JSONObject();
         newUserObj.put("name", name);
         newUserObj.put("email", email);

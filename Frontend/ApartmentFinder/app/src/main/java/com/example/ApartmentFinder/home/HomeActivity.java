@@ -51,17 +51,25 @@ public class HomeActivity extends AppCompatActivity implements IView {
                     e.printStackTrace();
                 }
 
-                String[] apartmentNames = new String[allApartments.size()];
-                String[] apartmentAddress = new String[allApartments.size()];
-                for(int i = 0; i<allApartments.size(); i++){
-                    apartmentNames[i]= allApartments.get(i).getApartment_name();
-                    apartmentAddress[i]= allApartments.get(i).getAddress();
-                }
+//                String[] apartmentNames = new String[allApartments.size()];
+//                String[] apartmentAddress = new String[allApartments.size()];
+//                String[] apartmentLocation = new String[allApartments.size()];
+//                int[] apartmentNumRooms = new int[allApartments.size()];
+//                int[] apartmentRating = new int[allApartments.size()];
+//                int[] apartmentRent = new int[allApartments.size()];
+//                for(int i = 0; i<allApartments.size(); i++){
+//                    apartmentNames[i]= allApartments.get(i).getApartment_name();
+//                    apartmentAddress[i]= allApartments.get(i).getAddress();
+//                    apartmentLocation[i] = allApartments.get(i).getLocation();
+//                    apartmentNumRooms[i] = allApartments.get(i).getNum_rooms();
+//                    apartmentRating[i] = allApartments.get(i).getRating();
+//                    apartmentRent[i] = allApartments.get(i).getRent();
+//                }
 
 
                 recyclerView = findViewById(R.id.recyclerView);
                 recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-                adapter = new Adapter(mContext,apartmentNames,apartmentAddress);
+                adapter = new Adapter(mContext, allApartments);
                 recyclerView.setAdapter(adapter);
             }
         });
@@ -76,7 +84,11 @@ public class HomeActivity extends AppCompatActivity implements IView {
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new Adapter(this);
+        try {
+            adapter = new Adapter(this);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         recyclerView.setAdapter(adapter);
 
     }
