@@ -45,11 +45,11 @@ public class HomeLogic implements IVolleyListener{
             TimeUnit.SECONDS.sleep(waitTime);
         }
          **/
-        Log.d(TAG, "allApartments: "+ allApartments);
-        while(allApartments.size() == 0){
-            Log.d(TAG, "allApartments: "+ allApartments);
-        }
-        Log.d(TAG, "10: allApartments: "+ allApartments);
+//        Log.d(TAG, "allApartments: "+ allApartments);
+//        while(allApartments.size() == 0){
+//            Log.d(TAG, "allApartments: "+ allApartments);
+//        }
+//        Log.d(TAG, "10: allApartments: "+ allApartments);
 
         return allApartments;
     }

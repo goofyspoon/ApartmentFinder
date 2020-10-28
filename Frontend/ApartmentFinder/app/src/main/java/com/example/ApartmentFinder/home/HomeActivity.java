@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -30,6 +31,7 @@ public class HomeActivity extends AppCompatActivity implements IView {
 
     RecyclerView recyclerView;
     Adapter adapter;
+    private Context mContext = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class HomeActivity extends AppCompatActivity implements IView {
             @Override
             public void onSuccess(JSONArray result) {
                 //do something
+                ArrayList<Apartment> allApartments = new ArrayList<>();
                 try{
                     for(int i = 0; i<result.length(); i++){
                         allApartments.add(new Apartment(result.getJSONObject(i)));
@@ -48,6 +51,19 @@ public class HomeActivity extends AppCompatActivity implements IView {
                 }catch(JSONException e){
                     e.printStackTrace();
                 }
+
+                String[] apartmentNames = new String[allApartments.size()];
+                String[] apartmentAddress = new String[allApartments.size()];
+                for(int i = 0; i<allApartments.size(); i++){
+                    apartmentNames[i]= allApartments.get(i).getApartment_name();
+                    apartmentAddress[i]= allApartments.get(i).getAddress();
+                }
+
+
+                recyclerView = findViewById(R.id.recyclerView);
+                recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+                adapter = new Adapter(mContext,apartmentNames,apartmentAddress);
+                recyclerView.setAdapter(adapter);
             }
         });
         ArrayList<Apartment> apartmentArray = new ArrayList<>();
