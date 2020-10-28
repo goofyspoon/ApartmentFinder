@@ -25,6 +25,7 @@ import com.example.ApartmentFinder.registration.ServerRequest;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -69,8 +70,8 @@ public class HomeActivity extends AppCompatActivity implements IView {
                 recyclerView.setAdapter(adapter);
             }
         });
-
-        logic.getAllApartments();
+        JSONObject parameters = new JSONObject();
+        logic.getAllApartments(false, parameters);
 
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -85,7 +86,17 @@ public class HomeActivity extends AppCompatActivity implements IView {
         filterButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                logic.getAllApartments();
+                int bMin = Integer.parseInt(budgetMin.getText().toString());
+                int bMax = Integer.parseInt(budgetMax.getText().toString());
+                JSONObject parameters = new JSONObject();
+                try {
+                    parameters.put("bMin", bMin);
+                    parameters.put("bMax", bMax);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                logic.getAllApartments(true, parameters);
             }
         });
 
