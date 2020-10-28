@@ -36,7 +36,7 @@ public class RegistrationLogicUnitTests {
 
         JSONObject returnedObject = logic.registerUser(username, email, password);
 
-        final String url = Const.URL_JSON_OBJECT + "/Users?email="+email+"&userName="+username+"&password="+password;
+        final String url = Const.URL_JSON_OBJECT + "/User?email="+email+"&userName="+username+"&password="+password;
         JSONObject newUserObj = new JSONObject();
         newUserObj.put("name", username);
         newUserObj.put("email", email);
