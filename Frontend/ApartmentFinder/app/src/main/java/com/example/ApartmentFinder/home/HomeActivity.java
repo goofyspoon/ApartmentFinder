@@ -20,6 +20,7 @@ import com.example.ApartmentFinder.app.Apartment;
 import com.example.ApartmentFinder.registration.RegistrationActivity;
 import com.example.ApartmentFinder.registration.ServerRequest;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.lang.reflect.Array;
@@ -36,7 +37,19 @@ public class HomeActivity extends AppCompatActivity implements IView {
         setContentView(R.layout.activity_home_page);
 
         ServerRequest serverRequest = new ServerRequest();
-        final HomeLogic logic = new HomeLogic(this, serverRequest);
+        final HomeLogic logic = new HomeLogic(this, serverRequest, new ServerCallback() {
+            @Override
+            public void onSuccess(JSONArray result) {
+                //do something
+                try{
+                    for(int i = 0; i<result.length(); i++){
+                        allApartments.add(new Apartment(result.getJSONObject(i)));
+                    }
+                }catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        });
         ArrayList<Apartment> apartmentArray = new ArrayList<>();
         try {
             apartmentArray = logic.getAllApartments();

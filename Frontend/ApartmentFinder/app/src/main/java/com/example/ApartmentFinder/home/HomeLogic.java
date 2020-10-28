@@ -25,14 +25,16 @@ public class HomeLogic implements IVolleyListener{
     private String TAG = HomeLogic.class.getSimpleName();
     IView r;
     IServerRequest serverRequest;
+    ServerCallback callback;
     ArrayList<Apartment> allApartments = new ArrayList<>();
     boolean requestFinished;
 
-    public HomeLogic(IView r, IServerRequest serverRequest){
+    public HomeLogic(IView r, IServerRequest serverRequest, final ServerCallback callback){
         this.r = r;
         this.serverRequest = serverRequest;
         serverRequest.addVolleyListener(this);
         requestFinished = false;
+        this.callback = callback;
     }
 
     public ArrayList<Apartment> getAllApartments() throws InterruptedException {
@@ -59,14 +61,15 @@ public class HomeLogic implements IVolleyListener{
                     @Override
                     public void onResponse(JSONArray response) {
                         Log.d(TAG, response.toString());
-                        try{
-                            for(int i = 0; i<response.length(); i++){
-                                allApartments.add(new Apartment(response.getJSONObject(i)));
-                            }
-                            requestFinished = true;
-                        }catch(JSONException e){
-                            e.printStackTrace();
-                        }
+                        callback.onSuccess(response);
+//                        try{
+//                            for(int i = 0; i<response.length(); i++){
+//                                allApartments.add(new Apartment(response.getJSONObject(i)));
+//                            }
+//
+//                        }catch(JSONException e){
+//                            e.printStackTrace();
+//                        }
 
                     }
                 }, new Response.ErrorListener() {
