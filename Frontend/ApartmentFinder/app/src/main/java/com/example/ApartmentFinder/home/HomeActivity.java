@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.ApartmentFinder.MainActivity;
@@ -23,6 +25,7 @@ import com.example.ApartmentFinder.registration.ServerRequest;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -33,10 +36,20 @@ public class HomeActivity extends AppCompatActivity implements IView {
     Adapter adapter;
     private Context mContext = this;
 
+    //Filter implementation
+    EditText budgetMin;
+    EditText budgetMax;
+    Button filterButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+
+        //Filter implementation:
+        budgetMin = findViewById(R.id.budgetMin);
+        budgetMax = findViewById(R.id.budgetMax);
+        filterButton = findViewById((R.id.filterButton));
 
         final HomeLogic logic = new HomeLogic(new ServerCallback() {
             @Override
@@ -51,35 +64,14 @@ public class HomeActivity extends AppCompatActivity implements IView {
                     e.printStackTrace();
                 }
 
-//                String[] apartmentNames = new String[allApartments.size()];
-//                String[] apartmentAddress = new String[allApartments.size()];
-//                String[] apartmentLocation = new String[allApartments.size()];
-//                int[] apartmentNumRooms = new int[allApartments.size()];
-//                int[] apartmentRating = new int[allApartments.size()];
-//                int[] apartmentRent = new int[allApartments.size()];
-//                for(int i = 0; i<allApartments.size(); i++){
-//                    apartmentNames[i]= allApartments.get(i).getApartment_name();
-//                    apartmentAddress[i]= allApartments.get(i).getAddress();
-//                    apartmentLocation[i] = allApartments.get(i).getLocation();
-//                    apartmentNumRooms[i] = allApartments.get(i).getNum_rooms();
-//                    apartmentRating[i] = allApartments.get(i).getRating();
-//                    apartmentRent[i] = allApartments.get(i).getRent();
-//                }
-
-
                 recyclerView = findViewById(R.id.recyclerView);
                 recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
                 adapter = new Adapter(mContext, allApartments);
                 recyclerView.setAdapter(adapter);
             }
         });
-
-        ArrayList<Apartment> apartmentArray = new ArrayList<>();
-        try {
-            apartmentArray = logic.getAllApartments();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        JSONObject parameters = new JSONObject();
+        logic.getAllApartments(false, parameters);
 
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -90,6 +82,23 @@ public class HomeActivity extends AppCompatActivity implements IView {
             e.printStackTrace();
         }
         recyclerView.setAdapter(adapter);
+
+        filterButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                int bMin = Integer.parseInt(budgetMin.getText().toString());
+                int bMax = Integer.parseInt(budgetMax.getText().toString());
+                JSONObject parameters = new JSONObject();
+                try {
+                    parameters.put("bMin", bMin);
+                    parameters.put("bMax", bMax);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                logic.getAllApartments(true, parameters);
+            }
+        });
 
     }
 

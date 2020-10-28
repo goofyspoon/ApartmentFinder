@@ -1,6 +1,9 @@
 package com.example.ApartmentFinder.home;
 
+import android.os.Build;
 import android.util.Log;
+
+import androidx.annotation.RequiresApi;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -32,19 +35,36 @@ public class HomeLogic{
         this.callback = callback;
     }
 
-    public ArrayList<Apartment> getAllApartments() throws InterruptedException {
-        GETJsonArrayRequest(Const.postmanURL+ "/Apartments");
-        return allApartments;
+    public void getAllApartments(boolean filter, JSONObject parameters){
+        GETJsonArrayRequest(Const.postmanURL+ "/Apartments", filter, parameters);
     }
 
-    public JsonArrayRequest GETJsonArrayRequest(String url) {
+    public JsonArrayRequest GETJsonArrayRequest(String url, final boolean filter, final JSONObject parameters) {
 
         JsonArrayRequest req = new JsonArrayRequest(url,
                 new Response.Listener<JSONArray>() {
+                    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
                     @Override
                     public void onResponse(JSONArray response) {
                         Log.d(TAG, response.toString());
-                        callback.onSuccess(response);
+                        if(!filter) {
+                            callback.onSuccess(response);
+                        } else {
+                            JSONArray filterResponse = response;
+                            for(int i = 0; i<response.length(); i++){
+                                try {
+                                    Apartment compareApartment = new Apartment((JSONObject) filterResponse.get(i));
+                                    if(compareApartment.getRent() < parameters.getInt("bMin")
+                                            ||compareApartment.getRent() > parameters.getInt("bMax")){
+                                        //Doesnt match filter, remove from list
+                                        filterResponse.remove(i);
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                            callback.onSuccess(filterResponse);
+                        }
                     }
                 }, new Response.ErrorListener() {
             @Override
