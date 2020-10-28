@@ -34,7 +34,7 @@ unitTests:
         - FRONTEND
     script:
         - cd  Frontend/ApartmentFinder
-        - ./gradlewtest
+        - ./gradlew test
     only:
         refs:
             - master
