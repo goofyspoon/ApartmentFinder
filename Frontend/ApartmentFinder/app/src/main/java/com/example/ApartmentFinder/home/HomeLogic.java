@@ -32,9 +32,8 @@ public class HomeLogic{
         this.callback = callback;
     }
 
-    public ArrayList<Apartment> getAllApartments() throws InterruptedException {
+    public void getAllApartments(){
         GETJsonArrayRequest(Const.postmanURL+ "/Apartments");
-        return allApartments;
     }
 
     public JsonArrayRequest GETJsonArrayRequest(String url) {
