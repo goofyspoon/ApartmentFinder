@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,6 +21,7 @@ import com.example.ApartmentFinder.app.Apartment;
 import com.example.ApartmentFinder.registration.RegistrationActivity;
 import com.example.ApartmentFinder.registration.ServerRequest;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.lang.reflect.Array;
@@ -29,14 +31,49 @@ public class HomeActivity extends AppCompatActivity implements IView {
 
     RecyclerView recyclerView;
     Adapter adapter;
+    private Context mContext = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        ServerRequest serverRequest = new ServerRequest();
-        final HomeLogic logic = new HomeLogic(this, serverRequest);
+        final HomeLogic logic = new HomeLogic(new ServerCallback() {
+            @Override
+            public void onSuccess(JSONArray result) {
+                //do something
+                ArrayList<Apartment> allApartments = new ArrayList<>();
+                try{
+                    for(int i = 0; i<result.length(); i++){
+                        allApartments.add(new Apartment(result.getJSONObject(i)));
+                    }
+                }catch(JSONException e){
+                    e.printStackTrace();
+                }
+
+//                String[] apartmentNames = new String[allApartments.size()];
+//                String[] apartmentAddress = new String[allApartments.size()];
+//                String[] apartmentLocation = new String[allApartments.size()];
+//                int[] apartmentNumRooms = new int[allApartments.size()];
+//                int[] apartmentRating = new int[allApartments.size()];
+//                int[] apartmentRent = new int[allApartments.size()];
+//                for(int i = 0; i<allApartments.size(); i++){
+//                    apartmentNames[i]= allApartments.get(i).getApartment_name();
+//                    apartmentAddress[i]= allApartments.get(i).getAddress();
+//                    apartmentLocation[i] = allApartments.get(i).getLocation();
+//                    apartmentNumRooms[i] = allApartments.get(i).getNum_rooms();
+//                    apartmentRating[i] = allApartments.get(i).getRating();
+//                    apartmentRent[i] = allApartments.get(i).getRent();
+//                }
+
+
+                recyclerView = findViewById(R.id.recyclerView);
+                recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+                adapter = new Adapter(mContext, allApartments);
+                recyclerView.setAdapter(adapter);
+            }
+        });
+
         ArrayList<Apartment> apartmentArray = new ArrayList<>();
         try {
             apartmentArray = logic.getAllApartments();
@@ -45,19 +82,13 @@ public class HomeActivity extends AppCompatActivity implements IView {
         }
 
 
-        //String[] AptNames = getResources().getStringArray(R.array.apartment_names);
-        //String[] AptDescriptions = getResources().getStringArray(R.array.apartment_description);
-        String[] apartmentNames = new String[apartmentArray.size()];
-        String[] apartmentAddress = new String[apartmentArray.size()];
-        for(int i = 0; i<apartmentArray.size(); i++){
-            apartmentNames[i]= apartmentArray.get(i).getApartment_name();
-            apartmentAddress[i]= apartmentArray.get(i).getAddress();
-        }
-
-
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new Adapter(this,apartmentNames,apartmentAddress);
+        try {
+            adapter = new Adapter(this);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         recyclerView.setAdapter(adapter);
 
     }

@@ -21,34 +21,19 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-public class HomeLogic implements IVolleyListener{
+public class HomeLogic{
     private String TAG = HomeLogic.class.getSimpleName();
-    IView r;
-    IServerRequest serverRequest;
+    ServerCallback callback;
     ArrayList<Apartment> allApartments = new ArrayList<>();
     boolean requestFinished;
 
-    public HomeLogic(IView r, IServerRequest serverRequest){
-        this.r = r;
-        this.serverRequest = serverRequest;
-        serverRequest.addVolleyListener(this);
+    public HomeLogic(final ServerCallback callback){
         requestFinished = false;
+        this.callback = callback;
     }
 
     public ArrayList<Apartment> getAllApartments() throws InterruptedException {
         GETJsonArrayRequest(Const.postmanURL+ "/Apartments");
-        /**
-        long waitTime = (long) 0.001;
-        while(!requestFinished){
-            TimeUnit.SECONDS.sleep(waitTime);
-        }
-         **/
-        Log.d(TAG, "allApartments: "+ allApartments);
-        while(allApartments.size() == 0){
-            Log.d(TAG, "allApartments: "+ allApartments);
-        }
-        Log.d(TAG, "10: allApartments: "+ allApartments);
-
         return allApartments;
     }
 
@@ -59,15 +44,7 @@ public class HomeLogic implements IVolleyListener{
                     @Override
                     public void onResponse(JSONArray response) {
                         Log.d(TAG, response.toString());
-                        try{
-                            for(int i = 0; i<response.length(); i++){
-                                allApartments.add(new Apartment(response.getJSONObject(i)));
-                            }
-                            requestFinished = true;
-                        }catch(JSONException e){
-                            e.printStackTrace();
-                        }
-
+                        callback.onSuccess(response);
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -78,50 +55,6 @@ public class HomeLogic implements IVolleyListener{
         Log.d(TAG, "Adding the following to Request Queue: " + req);
         AppController.getInstance().addToRequestQueue(req);
         return req;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /**
-
-//http://coms-309-cy-04.cs.iastate.edu:8080/Users?email=mag@iastate.edu&userName=testingFromPostman&password=testingFromPostman
-    public JSONObject registerUser(String name, String email, String password) throws JSONException {
-        final String url = Const.URL_JSON_OBJECT + "/Users?email="+email+"&userName="+name+"&password="+password;
-        JSONObject newUserObj = new JSONObject();
-        newUserObj.put("name", name);
-        newUserObj.put("email", email);
-        newUserObj.put("password", password);
-
-        serverRequest.sendToServer(url, newUserObj, "POST");
-        return newUserObj;
-    }
-     **/
-    public void onSuccess(String password){
-        if(password.length()>0){
-            r.showText("You are registered!");
-        }else{
-            r.showText("Error with request, please try again.");
-        }
-    }
-
-    @Override
-    public void onError(String s) {
-
     }
 
 }

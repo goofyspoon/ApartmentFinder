@@ -22,11 +22,12 @@ public class Apartment {
         this.rent = apartment.getInt("rent");
     }
 
-    Apartment(int apartment_id, String address, String apartment_name){
+    public Apartment(int apartment_id, String address, String apartment_name){
         this.apartment_id = apartment_id;
         this.address = address;
         this.apartment_name = apartment_name;
     }
+
 
     public int getApartment_id() {
         return apartment_id;

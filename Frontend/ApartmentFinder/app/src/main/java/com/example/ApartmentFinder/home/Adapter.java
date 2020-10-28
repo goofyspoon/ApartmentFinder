@@ -12,16 +12,47 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ApartmentFinder.Details;
 import com.example.ApartmentFinder.R;
+import com.example.ApartmentFinder.app.Apartment;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     private LayoutInflater inflater;
+    private ArrayList<Apartment> apartmentArray;
+
     private String[] aTitles;
     private String[] aContent;
+    Adapter(Context context, ArrayList<Apartment> apartmentArray){
+        this.inflater = LayoutInflater.from(context);
+        this.apartmentArray = apartmentArray;
+    }
+
     Adapter (Context context, String[] titles, String[] contents) {
         this.inflater = LayoutInflater.from(context);
         this.aTitles = titles;
         this.aContent = contents;
+    }
+    Adapter(Context context) throws JSONException {
+//        this.inflater = LayoutInflater.from(context);
+//        this.aTitles = new String[1];
+//        this.aContent = new String[1];
+        this.inflater = LayoutInflater.from(context);
+        this.apartmentArray = new ArrayList<Apartment>();
+        JSONObject  myJson = new JSONObject();
+
+        myJson.put("apartment_id", 0);
+        myJson.put("address", "");
+        myJson.put("apartment_name", "Loading...");
+        myJson.put("location", "");
+        myJson.put("num_rooms", 0);
+        myJson.put("rating", 0);
+        myJson.put("rent", 0);
+
+        apartmentArray.add(new Apartment(myJson));
     }
 
 
@@ -35,20 +66,22 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
 
-        String aptTitle = aTitles[i];
-        String aptContent = aContent[i];
-        viewHolder.ApartmentTitle.setText(aptTitle);
-        viewHolder.ApartmentContent.setText(aptContent);
+//        String aptTitle = aTitles[i];
+//        String aptContent = aContent[i];
+        String aptName = apartmentArray.get(i).getApartment_name();
+        String aptAddress = apartmentArray.get(i).getAddress();
+        viewHolder.ApartmentName.setText(aptName);
+        viewHolder.ApartmentAddress.setText(aptAddress);
     }
 
     @Override
     public int getItemCount() {
-        return aTitles.length;
+        return apartmentArray.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView ApartmentTitle,ApartmentContent;
+        TextView ApartmentName,ApartmentAddress;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -56,13 +89,15 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(v.getContext(), Details.class);
-                    i.putExtra("nameOfApartment", aTitles[getAdapterPosition()]);
-                    i.putExtra("contentOfApartment", aContent[getAdapterPosition()]);
+//                    i.putExtra("nameOfApartment", aTitles[getAdapterPosition()]);
+//                    i.putExtra("contentOfApartment", aContent[getAdapterPosition()]);
+                    i.putExtra("nameOfApartment", apartmentArray.get(getAdapterPosition()).getApartment_name());
+                    i.putExtra("addressOfApartment", apartmentArray.get(getAdapterPosition()).getAddress());
                     v.getContext().startActivity(i);
                 }
             });
-            ApartmentTitle = itemView.findViewById(R.id.AptTitle);
-            ApartmentContent = itemView.findViewById(R.id.AptContent);
+            ApartmentName = itemView.findViewById(R.id.AptTitle);
+            ApartmentAddress = itemView.findViewById(R.id.AptContent);
         }
     }
 
