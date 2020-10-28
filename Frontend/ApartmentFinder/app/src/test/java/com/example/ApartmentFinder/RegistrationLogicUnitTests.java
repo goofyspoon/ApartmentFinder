@@ -66,6 +66,7 @@ public class RegistrationLogicUnitTests {
         verify(mockedIView).showText(expectedText);
     }
 
+    /**
     @Test
     public void testOnErrorMethod(){
         //Written by Marissa
@@ -76,5 +77,6 @@ public class RegistrationLogicUnitTests {
         verify(mockedIView).toastText(testErrorMessage);
         verify(mockedIView).showText(expectedText);
     }
+    **/
 
 }
