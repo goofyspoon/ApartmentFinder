@@ -1,8 +1,8 @@
 stages:
     - androidbuild
     - androidtest
-    - mavenbuild
-    - maventest
+    - maven-build
+    - maven-test
     - autodeploy
 
 #Backend tests:
