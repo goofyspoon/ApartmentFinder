@@ -17,6 +17,20 @@ class Users{
 
     @Column String email;
 
+    public Users() {
+        userId = null;
+        userName = null;
+        password = null;
+        email = null;
+    }
+
+    public Users(int UserId, String UserName, String Password, String Email) {
+        userId = UserId;
+        userName = UserName;
+        password = Password;
+        email = Email;
+    }
+
 
     public void setUserId(Integer userId) {
         this.userId = userId;

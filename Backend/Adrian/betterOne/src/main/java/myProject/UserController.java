@@ -36,7 +36,8 @@ public class UserController {
 
     @GetMapping("/User/{userName}")
     public List<Users> findByUserName(@PathVariable(value = "userName") String userName){
-       return (List<Users>) db.findByUserName(userName);
+        List<Users> l = db.findByUserName(userName);
+       return l;
     }
 
     @DeleteMapping("/User/{userName}")
