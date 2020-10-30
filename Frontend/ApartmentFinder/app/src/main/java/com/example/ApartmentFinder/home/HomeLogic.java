@@ -54,10 +54,20 @@ public class HomeLogic{
                             for(int i = 0; i<response.length(); i++){
                                 try {
                                     Apartment compareApartment = new Apartment((JSONObject) filterResponse.get(i));
-                                    if(compareApartment.getRent() < parameters.getInt("bMin")
-                                            ||compareApartment.getRent() > parameters.getInt("bMax")){
-                                        //Doesnt match filter, remove from list
-                                        filterResponse.remove(i);
+                                    if(parameters.getInt("bMin") != -1) {
+                                        //Search by budget
+                                        if (compareApartment.getRent() < parameters.getInt("bMin")
+                                                || compareApartment.getRent() > parameters.getInt("bMax")) {
+                                            //Doesnt match filter, remove from list
+                                            filterResponse.remove(i);
+                                        }
+                                    }else if(parameters.getInt("rMin") != -1){
+                                        //Search by num rooms
+                                        if (compareApartment.getNum_rooms() < parameters.getInt("rMin")
+                                                || compareApartment.getNum_rooms() > parameters.getInt("rMax")) {
+                                            //Doesnt match filter, remove from list
+                                            filterResponse.remove(i);
+                                        }
                                     }
                                 } catch (JSONException e) {
                                     e.printStackTrace();

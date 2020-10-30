@@ -39,6 +39,8 @@ public class HomeActivity extends AppCompatActivity implements IView {
     //Filter implementation
     EditText budgetMin;
     EditText budgetMax;
+    EditText roomMin;
+    EditText roomMax;
     Button filterButton;
 
     @Override
@@ -49,6 +51,8 @@ public class HomeActivity extends AppCompatActivity implements IView {
         //Filter implementation:
         budgetMin = findViewById(R.id.budgetMin);
         budgetMax = findViewById(R.id.budgetMax);
+        roomMin = findViewById(R.id.roomMin);
+        roomMax = findViewById(R.id.roomMax);
         filterButton = findViewById((R.id.filterButton));
 
         final HomeLogic logic = new HomeLogic(new ServerCallback() {
@@ -86,12 +90,30 @@ public class HomeActivity extends AppCompatActivity implements IView {
         filterButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                int bMin = Integer.parseInt(budgetMin.getText().toString());
-                int bMax = Integer.parseInt(budgetMax.getText().toString());
+                int bMin;
+                int bMax;
+                int rMin;
+                int rMax;
+                if(budgetMin.getText().toString().isEmpty()) {
+                    bMin = -1;
+                    bMax = -1;
+                }else{
+                    bMin = Integer.parseInt(budgetMin.getText().toString());
+                    bMax = Integer.parseInt(budgetMax.getText().toString());
+                }
+                if(roomMin.getText().toString().isEmpty()) {
+                    rMin = -1;
+                    rMax = -1;
+                }else{
+                    rMin = Integer.parseInt(roomMin.getText().toString());
+                    rMax = Integer.parseInt(roomMax.getText().toString());
+                }
                 JSONObject parameters = new JSONObject();
                 try {
                     parameters.put("bMin", bMin);
                     parameters.put("bMax", bMax);
+                    parameters.put("rMin", rMin);
+                    parameters.put("rMax", rMax);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

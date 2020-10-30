@@ -25,8 +25,39 @@
         app:layout_constraintBottom_toTopOf="@id/recyclerView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.319"
-        tools:layout_editor_absoluteX="-40dp">
+        tools:layout_editor_absoluteX="-118dp">
 
+
+        <EditText
+            android:id="@+id/roomMax"
+            android:layout_width="70dp"
+            android:layout_height="36dp"
+
+            android:layout_marginStart="120dp"
+            android:layout_marginLeft="120dp"
+            android:ems="10"
+            android:inputType="number"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textRentMax"
+            app:layout_constraintStart_toEndOf="@+id/textRentMax"
+            app:layout_constraintTop_toTopOf="@+id/textRentMax"
+            app:layout_constraintVertical_bias="0.705"
+            tools:text="6" />
+
+        <EditText
+            android:id="@+id/roomMin"
+            android:layout_width="70dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="96dp"
+            android:layout_marginLeft="96dp"
+            android:ems="10"
+            android:inputType="number"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textRentMin"
+            app:layout_constraintStart_toStartOf="@+id/budgetMax"
+            app:layout_constraintTop_toTopOf="@+id/textRentMin"
+            app:layout_constraintVertical_bias="1.0"
+            tools:text="0" />
 
         <EditText
             android:id="@+id/budgetMin"
@@ -97,6 +128,39 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textRentMax" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+            android:layout_marginLeft="120dp"
+            android:layout_marginBottom="120dp"
+            android:text="Num Rooms"
+            app:layout_constraintBottom_toTopOf="@+id/filterButton"
+            app:layout_constraintStart_toEndOf="@+id/textRent" />
+
+        <TextView
+            android:id="@+id/textRoomMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Min:"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/textRoomMax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="70dp"
+            android:text="Max:"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
