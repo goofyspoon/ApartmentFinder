@@ -9,18 +9,18 @@ stages:
 maven-build:
     stage: mavenbuild
     tags:
-        -shell
+        - shell
     script:
-        -cd Spring
-        -mvn package -B
+        - cd Spring
+        - mvn package -B
     
 maven-test:
     stage: maventest
     tags:
-        -shell
+        - shell
     script:
-        -cd Spring
-        -mvn test
+        - cd Spring
+        - mvn test
     artifacts:
         paths:
         - Spring/target/*.jar
@@ -28,7 +28,7 @@ maven-test:
 autoDeploy:
     stage: autodeploy
     tags:
-        -shell
+        - shell
     script:
         - cd Spring
         - mvn package
