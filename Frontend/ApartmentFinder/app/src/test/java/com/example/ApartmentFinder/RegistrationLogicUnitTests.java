@@ -93,17 +93,4 @@ public class RegistrationLogicUnitTests {
 
     }
 
-    /**
-    @Test
-    public void testOnErrorMethod(){
-        //Written by Marissa
-        RegistrationLogic logic = new RegistrationLogic(mockedIView, mockedServerRequest);
-        String testErrorMessage = "";
-        logic.onError(testErrorMessage);
-        String expectedText = "Error with request, please try again.";
-        verify(mockedIView).toastText(testErrorMessage);
-        verify(mockedIView).showText(expectedText);
-    }
-    **/
-
 }
