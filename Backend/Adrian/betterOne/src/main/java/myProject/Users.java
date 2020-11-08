@@ -70,6 +70,9 @@ class Users{
         return email;
     }
 
+    public boolean getAdmin() {
+        return isAdmin;
+    }
 
     // public void setType(String type) { this.type = type; }
 }
