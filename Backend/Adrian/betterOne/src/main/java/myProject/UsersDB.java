@@ -16,7 +16,7 @@ public interface UsersDB extends JpaRepository<Users, Integer> {
     List<Users> findByUserName(String userName);
     List<Users> deleteByUserName(String userName);
 
-    Users createUser(Users use);
-    Users hello();
+    //Users createUser(Users use);
+    //Users hello();
 }
 
