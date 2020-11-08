@@ -1,4 +1,4 @@
-package myProject;
+/*package myProject;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
@@ -62,3 +62,4 @@ public class TestPost {
 
     }
 }
+*/

@@ -1,4 +1,4 @@
-package myProject;
+/*package myProject;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,3 +37,4 @@ public class TestBySingleId {
 
     }
 }
+*/
