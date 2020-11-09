@@ -36,6 +36,7 @@ public class HomeLogic{
     }
 
     public void getAllApartments(boolean filter, JSONObject parameters){
+        //GETJsonArrayRequest(Const.URL_JSON_OBJECT+ "/Apartments", filter, parameters);
         GETJsonArrayRequest(Const.postmanURL+ "/Apartments", filter, parameters);
     }
 

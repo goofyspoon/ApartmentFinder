@@ -19,6 +19,8 @@ import com.example.ApartmentFinder.R;
 import com.example.ApartmentFinder.home.HomeActivity;
 //import com.example.loginapplication.home.HomePageActivity;
 
+
+
 import org.json.JSONException;
 
 public class RegistrationActivity extends AppCompatActivity implements IView {
