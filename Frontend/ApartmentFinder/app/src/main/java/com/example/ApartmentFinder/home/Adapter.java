@@ -19,6 +19,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+
+/**
+ * @Author Kent
+ */
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     private LayoutInflater inflater;
