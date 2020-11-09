@@ -17,11 +17,14 @@ class Users{
 
     @Column String email;
 
+    @Column boolean isAdmin;
+
     public Users() {
         userId = null;
         userName = null;
         password = null;
         email = null;
+        isAdmin = false;
     }
 
     public Users(int UserId, String UserName, String Password, String Email) {
@@ -31,6 +34,10 @@ class Users{
         email = Email;
     }
 
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
 
     public void setUserId(Integer userId) {
         this.userId = userId;
@@ -63,6 +70,9 @@ class Users{
         return email;
     }
 
+    public boolean getAdmin() {
+        return isAdmin;
+    }
 
     // public void setType(String type) { this.type = type; }
 }
