@@ -13,6 +13,10 @@ import com.android.volley.toolbox.Volley;
 import com.example.ApartmentFinder.net_utils.LruBitmapCache;
 
 //extends Application
+
+/**
+ * @Author Marissa
+ */
 public class AppController extends Application{
     public static final String TAG = AppController.class.getSimpleName();
 
@@ -65,5 +69,10 @@ public class AppController extends Application{
         if(mRequestQueue != null){
             mRequestQueue.cancelAll(tag);
         }
+    }
+
+    public void getWebSocket(){
+        //websocket stuff
+        
     }
 }
