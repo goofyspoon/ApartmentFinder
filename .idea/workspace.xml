@@ -35,14 +35,20 @@
   <component name="ChangeListManager">
     <list default="true" id="c9c83fcb-ef55-4e21-9ebf-903077a3ce2a" name="Default Changelist" comment="renamed classes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/Adrian/betterOne/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Adrian/betterOne/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/Adrian/betterOne/src/main/java/myProject/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Adrian/betterOne/src/main/java/myProject/Users.java" afterDir="false" />
     </list>
     <list id="2df1a2a8-fe24-4401-9da5-fbb40322a633" name="unnecesary" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/Experiments/Kent">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/Frontend">
+      <ProjectState />
+    </projectState>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -52,6 +58,13 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.1\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="1gbdZbP9lCzFsr00o3fJa4RpCQv" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -65,7 +78,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/springboot_tutorials" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -80,16 +93,21 @@
       <recent name="C:\Users\Adrian\IdeaProjects\cy_04\Backend\Adrian" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.Unnamed">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="demo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.demo.DemoApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -118,6 +136,7 @@
       <workItem from="1600313668218" duration="590000" />
       <workItem from="1600314273759" duration="747000" />
       <workItem from="1600315118272" duration="7647000" />
+      <workItem from="1605058977216" duration="81000" />
     </task>
     <task id="LOCAL-00001" summary="Created a hello world springboot file, and set up vcs for springboot">
       <created>1598387820035</created>
@@ -382,10 +401,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="694" y="254" key="VcsDiffUtil.ChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600281247589" />
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600312647523">
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605059000794">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600312647523" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1605059000794" />
     <state x="667" y="119" width="585" height="801" key="find.popup" timestamp="1598387576387">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
