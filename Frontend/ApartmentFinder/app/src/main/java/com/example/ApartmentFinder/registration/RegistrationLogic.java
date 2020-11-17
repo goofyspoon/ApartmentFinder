@@ -1,6 +1,6 @@
 package com.example.ApartmentFinder.registration;
 
-import com.example.ApartmentFinder.Volley.IServerRequest;
+import com.example.ApartmentFinder.Volley.IJSONObjectRequest;
 import com.example.ApartmentFinder.Volley.IView;
 import com.example.ApartmentFinder.Volley.IVolleyListener;
 import com.example.ApartmentFinder.net_utils.Const;
@@ -10,9 +10,9 @@ import org.json.JSONObject;
 
 public class RegistrationLogic implements IVolleyListener {
     IView r;
-    IServerRequest serverRequest;
+    IJSONObjectRequest serverRequest;
 
-    public RegistrationLogic(IView r, IServerRequest serverRequest){
+    public RegistrationLogic(IView r, IJSONObjectRequest serverRequest){
         this.r = r;
         this.serverRequest = serverRequest;
         serverRequest.addVolleyListener(this);

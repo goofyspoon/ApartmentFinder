@@ -1,6 +1,6 @@
 package com.example.ApartmentFinder;
 
-import com.example.ApartmentFinder.Volley.IServerRequest;
+import com.example.ApartmentFinder.Volley.IJSONObjectRequest;
 import com.example.ApartmentFinder.app.Apartment;
 import com.example.ApartmentFinder.net_utils.Const;
 import com.example.ApartmentFinder.Volley.IView;
@@ -26,7 +26,7 @@ public class RegistrationLogicUnitTests {
     private IView mockedIView;
 
     @Mock
-    private IServerRequest mockedServerRequest;
+    private IJSONObjectRequest mockedServerRequest;
 
     @Mock
     private Apartment mockedApartment;

@@ -52,7 +52,7 @@ public class RegistrationActivity extends AppCompatActivity implements IView {
             eRegPassword.setAutofillHints(View.AUTOFILL_HINT_PASSWORD);
         }
 
-        ServerRequest serverRequest = new ServerRequest();
+        JSONObjectRequest serverRequest = new JSONObjectRequest();
         final RegistrationLogic logic = new RegistrationLogic(this, serverRequest);
 
         eRegister.setOnClickListener(new View.OnClickListener(){

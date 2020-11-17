@@ -9,11 +9,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.example.ApartmentFinder.JsonRequestActivity;
+import com.example.ApartmentFinder.Volley.IJSONArrayRequest;
 import com.example.ApartmentFinder.app.Apartment;
 import com.example.ApartmentFinder.app.AppController;
 import com.example.ApartmentFinder.net_utils.Const;
-import com.example.ApartmentFinder.Volley.IServerRequest;
 import com.example.ApartmentFinder.Volley.IView;
 import com.example.ApartmentFinder.Volley.IVolleyListener;
 
@@ -22,9 +21,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
-public class HomeLogic{
+public class HomeLogic implements IVolleyListener{
+    IView r;
+    IJSONArrayRequest arrayRequest;
     private String TAG = HomeLogic.class.getSimpleName();
     ServerCallback callback;
     ArrayList<Apartment> allApartments = new ArrayList<>();
@@ -37,55 +37,20 @@ public class HomeLogic{
 
     public void getAllApartments(boolean filter, JSONObject parameters){
         //GETJsonArrayRequest(Const.URL_JSON_OBJECT+ "/Apartments", filter, parameters);
-        GETJsonArrayRequest(Const.postmanURL+ "/Apartments", filter, parameters);
+        arrayRequest.sendToServer(Const.postmanURL+ "/Apartments", filter, parameters);
     }
 
-    public JsonArrayRequest GETJsonArrayRequest(String url, final boolean filter, final JSONObject parameters) {
+    public void onSuccess(String password){
+        if(password.length()>0){
+            r.showText("You are registered!");
+        }else{
+            r.showText("Error with request, please try again.");
+        }
+    }
 
-        JsonArrayRequest req = new JsonArrayRequest(url,
-                new Response.Listener<JSONArray>() {
-                    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        Log.d(TAG, response.toString());
-                        if(!filter) {
-                            callback.onSuccess(response);
-                        } else {
-                            JSONArray filterResponse = response;
-                            for(int i = 0; i<response.length(); i++){
-                                try {
-                                    Apartment compareApartment = new Apartment((JSONObject) filterResponse.get(i));
-                                    if(parameters.getInt("bMin") != -1) {
-                                        //Search by budget
-                                        if (compareApartment.getRent() < parameters.getInt("bMin")
-                                                || compareApartment.getRent() > parameters.getInt("bMax")) {
-                                            //Doesnt match filter, remove from list
-                                            filterResponse.remove(i);
-                                        }
-                                    }else if(parameters.getInt("rMin") != -1){
-                                        //Search by num rooms
-                                        if (compareApartment.getNum_rooms() < parameters.getInt("rMin")
-                                                || compareApartment.getNum_rooms() > parameters.getInt("rMax")) {
-                                            //Doesnt match filter, remove from list
-                                            filterResponse.remove(i);
-                                        }
-                                    }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                            callback.onSuccess(filterResponse);
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-            }
-        });
-        Log.d(TAG, "Adding the following to Request Queue: " + req);
-        AppController.getInstance().addToRequestQueue(req);
-        return req;
+    @Override
+    public void onError(String s) {
+
     }
 
 }

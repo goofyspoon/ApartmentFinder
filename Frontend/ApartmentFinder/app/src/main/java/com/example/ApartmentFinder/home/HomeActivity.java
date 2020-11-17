@@ -20,14 +20,11 @@ import com.example.ApartmentFinder.MainActivity;
 import com.example.ApartmentFinder.R;
 import com.example.ApartmentFinder.Volley.IView;
 import com.example.ApartmentFinder.app.Apartment;
-import com.example.ApartmentFinder.registration.RegistrationActivity;
-import com.example.ApartmentFinder.registration.ServerRequest;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity implements IView {
