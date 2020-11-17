@@ -72,25 +72,60 @@ public class RegistrationLogicUnitTests {
     }
 
     @Test
-    public void testApartment() throws JSONException {
+    public void testApartmentRent() throws JSONException {
+        JSONObject testObject = new JSONObject();
+        int testRent = 0;
+        testObject.put("rent", testRent);
+        Apartment testApartment = new Apartment(testObject);
+        Assert.assertEquals(testRent, testApartment.getRent());
+    }
+
+    @Test
+    public void testApartmentRating() throws JSONException {
+        JSONObject testObject = new JSONObject();
+        int testRating = 0;
+        testObject.put("rating", testRating);
+        Apartment testApartment = new Apartment(testObject);
+        Assert.assertEquals(testRating, testApartment.getRating());
+    }
+
+    @Test
+    public void testApartmentID() throws JSONException {
         JSONObject testObject = new JSONObject();
         int testApartmentID = 0;
-        int testNumRooms = 0;
-        int testRating = 0;
-        int testRent = 0;
-
         testObject.put("apartment_id", testApartmentID);
-        testObject.put("num_rooms", testNumRooms);
-        testObject.put("rating", testRating);
-        testObject.put("rent", testRent);
-
         Apartment testApartment = new Apartment(testObject);
-
         Assert.assertEquals(testApartmentID, testApartment.getApartment_id());
-        Assert.assertEquals(testNumRooms, testApartment.getNum_rooms());
-        Assert.assertEquals(testRating, testApartment.getRating());
-        Assert.assertEquals(testRent, testApartment.getRent());
-
     }
+
+    @Test
+    public void testApartmentNumRooms() throws JSONException {
+        JSONObject testObject = new JSONObject();
+        int testNumRooms = 0;
+        testObject.put("num_rooms", testNumRooms);
+        Apartment testApartment = new Apartment(testObject);
+        Assert.assertEquals(testNumRooms, testApartment.getNum_rooms());
+    }
+
+    @Test
+    public void testOnSuccessMethod3(){
+        //Written by Kent
+        RegistrationLogic logic = new RegistrationLogic(mockedIView, mockedServerRequest);
+        String testUsername = "KennyMark";
+        logic.onSuccess(testUsername);
+        String expectedText = "You are registered!";
+        verify(mockedIView).showText(expectedText);
+    }
+
+    @Test
+    public void testOnSuccessMethod4(){
+        //Written by Kent
+        RegistrationLogic logic = new RegistrationLogic(mockedIView, mockedServerRequest);
+        String testUsername = "";
+        logic.onSuccess(testUsername);
+        String expectedText = "Error with request, please try again.";
+        verify(mockedIView).showText(expectedText);
+    }
+
 
 }
