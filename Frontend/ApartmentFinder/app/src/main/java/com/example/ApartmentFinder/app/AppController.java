@@ -12,6 +12,8 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 import com.example.ApartmentFinder.net_utils.LruBitmapCache;
 
+import org.java_websocket.WebSocket;
+
 //extends Application
 
 /**
@@ -22,6 +24,7 @@ public class AppController extends Application{
 
     private RequestQueue mRequestQueue;
     private ImageLoader mImageLoader;
+    private WebSocket mWebSocket;
 
     private static AppController mInstance;
 
@@ -71,8 +74,7 @@ public class AppController extends Application{
         }
     }
 
-    public void getWebSocket(){
-        //websocket stuff
-        
+    public WebSocket getWebSocket(){
+        return mWebSocket;
     }
 }
