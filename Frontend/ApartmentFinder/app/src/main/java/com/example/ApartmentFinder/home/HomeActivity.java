@@ -74,7 +74,7 @@ public class HomeActivity extends AppCompatActivity implements IView {
                 adapter = new Adapter(mContext, allApartments);
                 recyclerView.setAdapter(adapter);
             }
-        });
+        }, this);
         JSONObject parameters = new JSONObject();
         logic.getAllApartments(false, parameters);
 
@@ -168,4 +168,5 @@ public class HomeActivity extends AppCompatActivity implements IView {
     public void toastText(String s){
         Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
     }
+
 }
