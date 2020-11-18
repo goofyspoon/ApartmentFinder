@@ -31,6 +31,7 @@ public class HomeLogic implements IVolleyListener{
     boolean requestFinished;
 
     public HomeLogic(final ServerCallback callback){
+        arrayRequest = new JSONArrayRequest(callback);
         requestFinished = false;
         this.callback = callback;
     }

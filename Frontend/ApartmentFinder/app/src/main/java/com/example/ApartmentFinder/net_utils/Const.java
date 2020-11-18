@@ -9,7 +9,7 @@ public class Const {
     public static final String URL_IMAGE = "http://api.androidhive.info/volley/volley-image.jpg";
     public static final String postmanURL = "https://667fbc16-a301-4efc-902f-925aa2e5a9bc.mock.pstmn.io";
 
-    public static final String testWebsocketURL = "ws://echo.websocket.org";
+    public static final String testWebsocketURL = "wss://echo.websocket.org";
 
     //SERVER:
     //http://coms-309-cy-04.cs.iastate.edu:8080/blah

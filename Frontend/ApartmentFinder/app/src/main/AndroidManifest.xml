@@ -21,6 +21,7 @@
         <activity android:name=".registration.RegistrationActivity" />
         <activity android:name=".home.HomeActivity" />
         <activity android:name=".JsonRequestActivity" />
+        <activity android:name=".chat.ChatActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

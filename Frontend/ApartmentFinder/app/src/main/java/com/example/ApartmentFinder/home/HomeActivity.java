@@ -20,6 +20,8 @@ import com.example.ApartmentFinder.MainActivity;
 import com.example.ApartmentFinder.R;
 import com.example.ApartmentFinder.Volley.IView;
 import com.example.ApartmentFinder.app.Apartment;
+import com.example.ApartmentFinder.chat.ChatActivity;
+import com.example.ApartmentFinder.registration.RegistrationActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,6 +41,7 @@ public class HomeActivity extends AppCompatActivity implements IView {
     EditText roomMin;
     EditText roomMax;
     Button filterButton;
+    Button chatButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,7 @@ public class HomeActivity extends AppCompatActivity implements IView {
         roomMin = findViewById(R.id.roomMin);
         roomMax = findViewById(R.id.roomMax);
         filterButton = findViewById((R.id.filterButton));
+        chatButton = findViewById(R.id.chatButton);
 
         final HomeLogic logic = new HomeLogic(new ServerCallback() {
             @Override
@@ -119,6 +123,20 @@ public class HomeActivity extends AppCompatActivity implements IView {
             }
         });
 
+        filterButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                startActivity(new Intent(HomeActivity.this, HomeActivity.class));
+            }
+        });
+
+        chatButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                startActivity(new Intent(HomeActivity.this, ChatActivity.class));
+            }
+
+        });
     }
 
     @Override
