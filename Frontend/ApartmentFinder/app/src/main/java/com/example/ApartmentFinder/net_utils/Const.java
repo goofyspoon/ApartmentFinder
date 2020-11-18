@@ -4,6 +4,7 @@ public class Const {
 
     //Replace with our urls #duh
     public static final String URL_JSON_OBJECT = "http://coms-309-cy-04.cs.iastate.edu:8080";
+    public static final String websocketURL = "ws://coms-309-cy-04.cs.iastate.edu:8080/chat/";
     public static final String URL_JSON_ARRAY = "http://api.androidhive.info/volley/person_array.json";
     public static final String URL_STRING_REQ = "http://api.androidhive.info/volley/string_respsonse.html";
     public static final String URL_IMAGE = "http://api.androidhive.info/volley/volley-image.jpg";

@@ -24,6 +24,7 @@ public class ChatActivity extends AppCompatActivity {
     Button b1,b2;
     EditText e1,e2;
     TextView t1;
+    TextView chatBody;
 
     private WebSocketClient cc;
     @Override
@@ -36,6 +37,7 @@ public class ChatActivity extends AppCompatActivity {
         e1=(EditText)findViewById(R.id.et1);
         e2=(EditText)findViewById(R.id.et2);
         t1=(TextView)findViewById(R.id.tx1);
+        chatBody = (TextView)findViewById(R.id.chatBody);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +49,7 @@ public class ChatActivity extends AppCompatActivity {
                  * computer, and change the ip address to that of your computer.
                  * If running on the emulator, you can use localhost.
                  */
-                String w = Const.testWebsocketURL+e1.getText().toString();
+                String w = Const.websocketURL+e1.getText().toString();
 
                 try {
                     Log.d("Socket:", "Trying socket");
@@ -61,6 +63,7 @@ public class ChatActivity extends AppCompatActivity {
                             //s=t1.getText().toString();
                             //Log.d("second", "run() returned: " + s);
                             t1.setText(s+" Server:"+message);
+                            chatBody.setText(message);
                         }
 
                         @Override
