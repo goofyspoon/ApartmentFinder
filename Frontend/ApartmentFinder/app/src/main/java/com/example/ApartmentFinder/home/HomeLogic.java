@@ -30,23 +30,29 @@ public class HomeLogic implements IVolleyListener{
     ArrayList<Apartment> allApartments = new ArrayList<>();
     boolean requestFinished;
 
-    public HomeLogic(final ServerCallback callback){
-        arrayRequest = new JSONArrayRequest(callback);
+    public HomeLogic(HomeActivity r, IJSONArrayRequest request){
+        arrayRequest = request;
         requestFinished = false;
         this.callback = callback;
+        this.r = r;
     }
 
-    public void getAllApartments(boolean filter, JSONObject parameters){
+    public JsonArrayRequest getAllApartments(boolean filter, JSONObject parameters){
         //GETJsonArrayRequest(Const.URL_JSON_OBJECT+ "/Apartments", filter, parameters);
-        arrayRequest.sendToServer(Const.postmanURL+ "/Apartments", filter, parameters);
+        return arrayRequest.sendToServer(Const.postmanURL+ "/Apartments", filter, parameters);
     }
 
-    public void onSuccess(String password){
-        if(password.length()>0){
-            r.showText("You are registered!");
+    public void onSuccess(int success){
+        if(success == 1){
+            r.showText("Apartments in search parameters:");
         }else{
             r.showText("Error with request, please try again.");
         }
+    }
+
+    @Override
+    public void onSuccess(String s) {
+
     }
 
     @Override
