@@ -56,7 +56,7 @@ public class HomeActivity extends AppCompatActivity implements IView {
         filterButton = findViewById((R.id.filterButton));
         chatButton = findViewById(R.id.chatButton);
 
-        final HomeLogic logic = new HomeLogic(new ServerCallback() {
+        ServerCallback callback = new ServerCallback() {
             @Override
             public void onSuccess(JSONArray result) {
                 //do something
@@ -74,7 +74,9 @@ public class HomeActivity extends AppCompatActivity implements IView {
                 adapter = new Adapter(mContext, allApartments);
                 recyclerView.setAdapter(adapter);
             }
-        }, this);
+        };
+
+        final HomeLogic logic = new HomeLogic(this, new JSONArrayRequest(callback));
         JSONObject parameters = new JSONObject();
         logic.getAllApartments(false, parameters);
 

@@ -76,6 +76,7 @@ public class JSONArrayRequest implements IJSONArrayRequest {
             }
         });
         Log.d(TAG, "Adding the following to Request Queue: " + req);
+        //AppController.getInstance().addToRequestQueue(registerUserRequest,tag_json_obj);
         AppController.getInstance().addToRequestQueue(req);
         return req;
     }

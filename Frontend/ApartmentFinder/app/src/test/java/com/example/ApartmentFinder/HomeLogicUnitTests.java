@@ -5,6 +5,7 @@ import com.example.ApartmentFinder.Volley.IJSONArrayRequest;
 import com.example.ApartmentFinder.Volley.IJSONObjectRequest;
 import com.example.ApartmentFinder.Volley.IView;
 import com.example.ApartmentFinder.app.Apartment;
+import com.example.ApartmentFinder.app.AppController;
 import com.example.ApartmentFinder.home.HomeActivity;
 import com.example.ApartmentFinder.home.HomeLogic;
 import com.example.ApartmentFinder.home.JSONArrayRequest;
@@ -30,7 +31,7 @@ public class HomeLogicUnitTests {
     private IView mockedIView;
 
     @Mock
-    private IJSONArrayRequest mockedServerRequest;
+    private JSONArrayRequest mockedServerRequest;
 
     @Mock
     private HomeActivity mockedActivity;
@@ -38,10 +39,14 @@ public class HomeLogicUnitTests {
     @Mock
     private ServerCallback callback;
 
+    @Mock
+    private AppController app;
+
     @Test
     public void testSendToServer() throws JSONException {
         //Written by Marissa
-        HomeLogic logic = new HomeLogic(callback, mockedActivity);
+
+        HomeLogic logic = new HomeLogic(mockedActivity, mockedServerRequest);
 
 
         JSONObject parameters = new JSONObject();
@@ -55,7 +60,6 @@ public class HomeLogicUnitTests {
         }
 
         JsonArrayRequest returnedObject = logic.getAllApartments(true,  parameters);
-        //JsonArrayRequest returnedObject = request.sendToServer(Const.postmanURL+ "/Apartments", true, parameters);
 
         //public JsonArrayRequest sendToServer(String url, final boolean filter, final JSONObject parameters)
         verify(mockedServerRequest, times(1)).sendToServer(Const.postmanURL+"/Apartments", true, parameters);
@@ -65,78 +69,12 @@ public class HomeLogicUnitTests {
     @Test
     public void testOnSuccessMethod(){
         //Written by Marissa
-        HomeLogic logic = new HomeLogic(callback, mockedActivity);
+        HomeLogic logic = new HomeLogic(mockedActivity, mockedServerRequest);
         int success = 1;
         logic.onSuccess(success);
         String expectedText = "Apartments in search parameters:";
-        verify(mockedIView).showText(expectedText);
-    }
-/**
-    @Test
-    public void testOnSuccessMethod2(){
-        //Written by Marissa
-        RegistrationLogic logic = new RegistrationLogic(mockedIView, mockedServerRequest);
-        String testEmail = "";
-        logic.onSuccess(testEmail);
-        String expectedText = "Error with request, please try again.";
-        verify(mockedIView).showText(expectedText);
+        verify(mockedActivity).showText(expectedText);
     }
 
-    @Test
-    public void testApartmentRent() throws JSONException {
-        JSONObject testObject = new JSONObject();
-        int testRent = 0;
-        testObject.put("rent", testRent);
-        Apartment testApartment = new Apartment(testObject);
-        Assert.assertEquals(testRent, testApartment.getRent());
-    }
-
-    @Test
-    public void testApartmentRating() throws JSONException {
-        JSONObject testObject = new JSONObject();
-        int testRating = 0;
-        testObject.put("rating", testRating);
-        Apartment testApartment = new Apartment(testObject);
-        Assert.assertEquals(testRating, testApartment.getRating());
-    }
-
-    @Test
-    public void testApartmentID() throws JSONException {
-        JSONObject testObject = new JSONObject();
-        int testApartmentID = 0;
-        testObject.put("apartment_id", testApartmentID);
-        Apartment testApartment = new Apartment(testObject);
-        Assert.assertEquals(testApartmentID, testApartment.getApartment_id());
-    }
-
-    @Test
-    public void testApartmentNumRooms() throws JSONException {
-        JSONObject testObject = new JSONObject();
-        int testNumRooms = 0;
-        testObject.put("num_rooms", testNumRooms);
-        Apartment testApartment = new Apartment(testObject);
-        Assert.assertEquals(testNumRooms, testApartment.getNum_rooms());
-    }
-
-    @Test
-    public void testOnSuccessMethod3(){
-        //Written by Kent
-        RegistrationLogic logic = new RegistrationLogic(mockedIView, mockedServerRequest);
-        String testUsername = "KennyMark";
-        logic.onSuccess(testUsername);
-        String expectedText = "You are registered!";
-        verify(mockedIView).showText(expectedText);
-    }
-
-    @Test
-    public void testOnSuccessMethod4(){
-        //Written by Kent
-        RegistrationLogic logic = new RegistrationLogic(mockedIView, mockedServerRequest);
-        String testUsername = "";
-        logic.onSuccess(testUsername);
-        String expectedText = "Error with request, please try again.";
-        verify(mockedIView).showText(expectedText);
-    }
-**/
 
 }

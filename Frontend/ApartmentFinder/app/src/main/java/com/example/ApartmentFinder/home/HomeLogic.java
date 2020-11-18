@@ -30,8 +30,8 @@ public class HomeLogic implements IVolleyListener{
     ArrayList<Apartment> allApartments = new ArrayList<>();
     boolean requestFinished;
 
-    public HomeLogic(final ServerCallback callback, HomeActivity r){
-        arrayRequest = new JSONArrayRequest(callback);
+    public HomeLogic(HomeActivity r, IJSONArrayRequest request){
+        arrayRequest = request;
         requestFinished = false;
         this.callback = callback;
         this.r = r;
