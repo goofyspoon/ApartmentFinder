@@ -32,6 +32,27 @@ public class JSONArrayRequest implements IJSONArrayRequest {
         requestFinished = false;
         this.callback = callback;
     }
+    public JsonArrayRequest sendToServer(String url) {
+        JsonArrayRequest req = new JsonArrayRequest(url,
+                new Response.Listener<JSONArray>() {
+                    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Log.d(TAG, response.toString());
+                            callback.onSuccess(response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d(TAG, "Error: " + error.getMessage());
+            }
+        });
+        Log.d(TAG, "Adding the following to Request Queue: " + req);
+        //AppController.getInstance().addToRequestQueue(registerUserRequest,tag_json_obj);
+        AppController.getInstance().addToRequestQueue(req);
+        return req;
+    }
+
     public JsonArrayRequest sendToServer(String url, final boolean filter, final JSONObject parameters) {
 
         JsonArrayRequest req = new JsonArrayRequest(url,

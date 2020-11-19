@@ -4,37 +4,37 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Apartment {
-    private int apartment_id;
+    private int apartmentId;
     private String address;
-    private String apartment_name;
+    private String apartmentName;
     private String location;
-    private int num_rooms;
+    private int numRooms;
     private int rating;
     private int rent;
 
     public Apartment(JSONObject apartment) throws JSONException {
-        this.apartment_id = apartment.getInt("apartment_id");
+        this.apartmentId = apartment.getInt("apartmentId");
         this.address = apartment.getString("address");
-        this.apartment_name = apartment.getString("apartment_name");
+        this.apartmentName = apartment.getString("apartmentName");
         this.location = apartment.getString("location");
-        this.num_rooms = apartment.getInt("num_rooms");
+        this.numRooms = apartment.getInt("numRooms");
         this.rating = apartment.getInt("rating");
         this.rent = apartment.getInt("rent");
     }
 
     public Apartment(int apartment_id, String address, String apartment_name){
-        this.apartment_id = apartment_id;
+        this.apartmentId = apartment_id;
         this.address = address;
-        this.apartment_name = apartment_name;
+        this.apartmentName = apartment_name;
     }
 
 
     public int getApartment_id() {
-        return apartment_id;
+        return apartmentId;
     }
 
     public void setApartment_id(int apartment_id) {
-        this.apartment_id = apartment_id;
+        this.apartmentId = apartment_id;
     }
 
     public String getAddress() {
@@ -46,11 +46,11 @@ public class Apartment {
     }
 
     public String getApartment_name() {
-        return apartment_name;
+        return apartmentName;
     }
 
     public void setApartment_name(String apartment_name) {
-        this.apartment_name = apartment_name;
+        this.apartmentName = apartment_name;
     }
 
     public String getLocation() {
@@ -62,11 +62,11 @@ public class Apartment {
     }
 
     public int getNum_rooms() {
-        return num_rooms;
+        return numRooms;
     }
 
     public void setNum_rooms(int num_rooms) {
-        this.num_rooms = num_rooms;
+        this.numRooms = num_rooms;
     }
 
     public int getRating() {

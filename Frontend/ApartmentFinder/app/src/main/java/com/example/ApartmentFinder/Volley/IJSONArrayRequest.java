@@ -7,4 +7,6 @@ import org.json.JSONObject;
 public interface IJSONArrayRequest {
     public JsonArrayRequest sendToServer(String url, final boolean filter, final JSONObject parameters);
     public void addVolleyListener(IVolleyListener logic);
+
+    JsonArrayRequest sendToServer(String url);
 }

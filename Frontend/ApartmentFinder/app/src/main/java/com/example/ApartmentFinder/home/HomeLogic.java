@@ -42,6 +42,30 @@ public class HomeLogic implements IVolleyListener{
         return arrayRequest.sendToServer(Const.postmanURL+ "/Apartments", filter, parameters);
     }
 
+    public JsonArrayRequest getSortedApartments(int sortedType){
+        //GETJsonArrayRequest(Const.URL_JSON_OBJECT+ "/Apartments", filter, parameters);
+        if(sortedType == 1){
+            //rentAsc
+            return arrayRequest.sendToServer(Const.URL_JSON_OBJECT+ "/Apartments/RentAsc");
+        }else if(sortedType == 2){
+            //rentDesc
+            return arrayRequest.sendToServer(Const.URL_JSON_OBJECT+ "/Apartments/RentDesc");
+        }else if(sortedType == 3){
+            //ratingAsc
+            return arrayRequest.sendToServer(Const.URL_JSON_OBJECT+ "/Apartments/RatingAsc");
+        }else if(sortedType == 4){
+            //ratingDesc
+            return arrayRequest.sendToServer(Const.URL_JSON_OBJECT+ "/Apartments/RatingDesc");
+        }else if(sortedType == 5){
+            //roomAsc
+            return arrayRequest.sendToServer(Const.URL_JSON_OBJECT+ "/Apartments/RoomAsc");
+        }else if(sortedType == 6){
+            //roomDesc
+            return arrayRequest.sendToServer(Const.URL_JSON_OBJECT+ "/Apartments/RoomDesc");
+        }
+        return null;
+    }
+
     public void onSuccess(int success){
         if(success == 1){
             r.showText("Apartments in search parameters:");
