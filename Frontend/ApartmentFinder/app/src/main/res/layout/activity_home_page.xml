@@ -12,20 +12,21 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="350dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/filter" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/filter"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
+        android:layout_marginTop="75dp"
         app:layout_constraintBottom_toTopOf="@id/recyclerView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.319"
-        tools:layout_editor_absoluteX="-118dp">
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="16dp">
 
 
         <EditText
@@ -33,23 +34,23 @@
             android:layout_width="70dp"
             android:layout_height="36dp"
 
-            android:layout_marginStart="120dp"
-            android:layout_marginLeft="120dp"
+            android:layout_marginStart="92dp"
+            android:layout_marginLeft="92dp"
             android:ems="10"
             android:inputType="number"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/textRentMax"
             app:layout_constraintStart_toEndOf="@+id/textRentMax"
             app:layout_constraintTop_toTopOf="@+id/textRentMax"
-            app:layout_constraintVertical_bias="0.705"
+            app:layout_constraintVertical_bias="0.764"
             tools:text="6" />
 
         <EditText
             android:id="@+id/roomMin"
             android:layout_width="70dp"
             android:layout_height="36dp"
-            android:layout_marginStart="96dp"
-            android:layout_marginLeft="96dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginLeft="80dp"
             android:ems="10"
             android:inputType="number"
             android:textSize="14sp"
@@ -69,6 +70,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/textRentMin"
             app:layout_constraintStart_toStartOf="@+id/budgetMax"
             app:layout_constraintTop_toTopOf="@+id/textRentMin"
+            app:layout_constraintVertical_bias="0.47"
             tools:text="300" />
 
         <EditText
@@ -90,8 +92,8 @@
             android:id="@+id/textRentMin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="32dp"
             android:text="Min: "
             app:layout_constraintStart_toStartOf="parent"
@@ -101,8 +103,8 @@
             android:id="@+id/textRentMax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="32dp"
             android:text="Max: "
             app:layout_constraintStart_toStartOf="parent"
@@ -124,10 +126,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/budgetMax"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:text="Filter"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.238"
+            app:layout_constraintHorizontal_bias="0.142"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textRentMax" />
 
@@ -136,10 +138,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/budgetMax"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="96dp"
             android:text="Chat"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.749"
+            app:layout_constraintHorizontal_bias="0.517"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textRentMax" />
 
@@ -147,9 +149,9 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="120dp"
-            android:layout_marginLeft="120dp"
-            android:layout_marginBottom="120dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginBottom="124dp"
             android:text="Num Rooms"
             app:layout_constraintBottom_toTopOf="@+id/filterButton"
             app:layout_constraintStart_toEndOf="@+id/textRent" />
@@ -158,9 +160,9 @@
             android:id="@+id/textRoomMin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="4dp"
             android:text="Min:"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -169,12 +171,76 @@
             android:id="@+id/textRoomMax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="70dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="52dp"
             android:text="Max:"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <Button
+            android:id="@+id/rentDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Rent Desc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rentAsc"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/ratingAsc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="104dp"
+            android:text="Rating Asc"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ratingDesc"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toEndOf="@+id/roomMin" />
+
+        <Button
+            android:id="@+id/ratingDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="104dp"
+            android:text="Rating Desc"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/roomAsc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Rooms Asc"
+            app:layout_constraintBottom_toTopOf="@+id/ratingAsc"
+            app:layout_constraintEnd_toStartOf="@+id/roomDesc"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/roomMin"
+            app:layout_constraintTop_toBottomOf="@+id/rentAsc"
+            app:layout_constraintVertical_bias="0.05" />
+
+        <Button
+            android:id="@+id/roomDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="104dp"
+            android:layout_marginLeft="104dp"
+            android:text="Rooms Desc"
+            app:layout_constraintBottom_toTopOf="@+id/ratingDesc"
+            app:layout_constraintStart_toEndOf="@+id/roomMin"
+            app:layout_constraintTop_toBottomOf="@+id/rentDesc"
+            app:layout_constraintVertical_bias="0.472" />
+
+        <Button
+            android:id="@+id/rentAsc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Rent Asc"
+            app:layout_constraintStart_toEndOf="@+id/roomMin"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

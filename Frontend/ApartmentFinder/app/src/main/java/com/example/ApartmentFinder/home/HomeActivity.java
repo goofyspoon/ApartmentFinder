@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -42,6 +43,12 @@ public class HomeActivity extends AppCompatActivity implements IView {
     EditText roomMax;
     Button filterButton;
     Button chatButton;
+    Button rentAsc;
+    Button rentDesc;
+    Button ratingAsc;
+    Button ratingDesc;
+    Button roomAsc;
+    Button roomDesc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +62,12 @@ public class HomeActivity extends AppCompatActivity implements IView {
         roomMax = findViewById(R.id.roomMax);
         filterButton = findViewById((R.id.filterButton));
         chatButton = findViewById(R.id.chatButton);
+        rentAsc = findViewById(R.id.rentAsc);
+        rentDesc = findViewById(R.id.rentDesc);
+        ratingAsc = findViewById(R.id.ratingAsc);
+        ratingDesc = findViewById(R.id.ratingDesc);
+        roomAsc = findViewById(R.id.roomAsc);
+        roomDesc = findViewById(R.id.roomDesc);
 
         ServerCallback callback = new ServerCallback() {
             @Override
@@ -139,6 +152,56 @@ public class HomeActivity extends AppCompatActivity implements IView {
             }
 
         });
+
+        rentAsc.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Log.d("Rent Asc", ": Trying to sort by rent ascending.");
+                logic.getSortedApartments(1);
+            }
+        });
+
+        rentDesc.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Log.d("Rent Desc", ": Trying to sort by rent descending.");
+                logic.getSortedApartments(2);
+            }
+        });
+
+        ratingAsc.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Log.d("Rating Asc", ": Trying to sort by rating ascending.");
+                logic.getSortedApartments(3);
+            }
+        });
+
+        ratingDesc.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Log.d("Rating Desc", ": Trying to sort by rating descending.");
+                logic.getSortedApartments(4);
+            }
+        });
+
+        roomAsc.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Log.d("Room Asc", ": Trying to sort by room ascending.");
+                logic.getSortedApartments(5);
+            }
+        });
+
+        roomDesc.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Log.d("Rent Asc", ": Trying to sort by rent ascending.");
+                logic.getSortedApartments(6);
+            }
+        });
+
+
     }
 
     @Override
